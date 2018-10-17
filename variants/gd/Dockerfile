@@ -1,8 +1,5 @@
 FROM php:7.2-fpm-alpine
 
-# mysqli (deprecated)
-RUN docker-php-ext-install mysqli
-
 # gd
 RUN apk update \
     && apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev \
