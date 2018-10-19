@@ -1,14 +1,17 @@
-# Variants' definition
+# Docker image variants' definitions
 $VARIANTS_VERSION = "1.0.0"
 $VARIANTS = @(
     @{
         name = 'gd'
+        includeEntrypointScript = $false
     }
     @{
         name = 'mysqli'
+        includeEntrypointScript = $false
     }
     @{
         name = 'mysqli-gd'
+        includeEntrypointScript = $false
     }
 )
 
