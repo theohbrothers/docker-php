@@ -24,13 +24,22 @@ build-gd:
 
     # Login to GitLab registry
     - echo "${CI_REGISTRY_PASSWORD}" | docker login -u "${CI_REGISTRY_USER}" --password-stdin "${CI_REGISTRY}"
+
   script:
     - date '+%Y-%m-%d %H:%M:%S %z'
     - docker build
       -t "${DOCKERHUB_REGISTRY_USER}/${CI_PROJECT_NAME}:${VARIANT_TAG}"
       -t "${CI_REGISTRY_IMAGE}:${VARIANT_TAG}"
       "./variants/${VARIANT_NAME}"
+
     - date '+%Y-%m-%d %H:%M:%S %z'
+
+    # Push to Docker Hub registry. E.g. 'namespace/my-project:tag'
+    - docker push "${DOCKERHUB_REGISTRY_USER}/${CI_PROJECT_NAME}:${VARIANT_TAG}"
+
+    # Push to GitLab registry. E.g. 'registry.gitlab.com/namespace/my-project:tag
+    - docker push "${CI_REGISTRY_IMAGE}:${VARIANT_TAG}"
+
   after_script:
     - date '+%Y-%m-%d %H:%M:%S %z'
 
@@ -56,13 +65,22 @@ build-mysqli:
 
     # Login to GitLab registry
     - echo "${CI_REGISTRY_PASSWORD}" | docker login -u "${CI_REGISTRY_USER}" --password-stdin "${CI_REGISTRY}"
+
   script:
     - date '+%Y-%m-%d %H:%M:%S %z'
     - docker build
       -t "${DOCKERHUB_REGISTRY_USER}/${CI_PROJECT_NAME}:${VARIANT_TAG}"
       -t "${CI_REGISTRY_IMAGE}:${VARIANT_TAG}"
       "./variants/${VARIANT_NAME}"
+
     - date '+%Y-%m-%d %H:%M:%S %z'
+
+    # Push to Docker Hub registry. E.g. 'namespace/my-project:tag'
+    - docker push "${DOCKERHUB_REGISTRY_USER}/${CI_PROJECT_NAME}:${VARIANT_TAG}"
+
+    # Push to GitLab registry. E.g. 'registry.gitlab.com/namespace/my-project:tag
+    - docker push "${CI_REGISTRY_IMAGE}:${VARIANT_TAG}"
+
   after_script:
     - date '+%Y-%m-%d %H:%M:%S %z'
 
@@ -88,13 +106,22 @@ build-mysqli-gd:
 
     # Login to GitLab registry
     - echo "${CI_REGISTRY_PASSWORD}" | docker login -u "${CI_REGISTRY_USER}" --password-stdin "${CI_REGISTRY}"
+
   script:
     - date '+%Y-%m-%d %H:%M:%S %z'
     - docker build
       -t "${DOCKERHUB_REGISTRY_USER}/${CI_PROJECT_NAME}:${VARIANT_TAG}"
       -t "${CI_REGISTRY_IMAGE}:${VARIANT_TAG}"
       "./variants/${VARIANT_NAME}"
+
     - date '+%Y-%m-%d %H:%M:%S %z'
+
+    # Push to Docker Hub registry. E.g. 'namespace/my-project:tag'
+    - docker push "${DOCKERHUB_REGISTRY_USER}/${CI_PROJECT_NAME}:${VARIANT_TAG}"
+
+    # Push to GitLab registry. E.g. 'registry.gitlab.com/namespace/my-project:tag
+    - docker push "${CI_REGISTRY_IMAGE}:${VARIANT_TAG}"
+
   after_script:
     - date '+%Y-%m-%d %H:%M:%S %z'
 
