@@ -1,3 +1,4 @@
+@"
 # php-fpm-alpine
 
 Official php:7.2-fpm-alpine with php extension(s).
@@ -6,7 +7,7 @@ Official php:7.2-fpm-alpine with php extension(s).
 
 Each variant includes the one or more php extensions.
 | Tags |
-|:-------: | 
-| :gd | 
-| :mysqli | 
-| :mysqli-gd |
+|:-------: | $( $VARIANTS | % {
+"`n| `:$( $_['name'] )` |"
+})
+"@
