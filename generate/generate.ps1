@@ -44,13 +44,15 @@ $VARIANTS | % {
     }
 
     # Generate Dockerfile
-    & {
-        Get-ContentFromTemplate -Path "$GENERATE_TEMPLATES_DIR/Dockerfile.begin.ps1"
+    $content = & {
+        $my_template_dir = if ( $VARIANT['distro'] ) { "$GENERATE_TEMPLATES_DIR/variants/$($VARIANT['distro'])" } else { "$GENERATE_TEMPLATES_DIR/variants" }
+        Get-ContentFromTemplate -Path "$my_template_dir/Dockerfile.begin.ps1"
         $VARIANT['extensions'] | % {
-            Get-ContentFromTemplate -Path "$GENERATE_TEMPLATES_DIR/variants/$_/$_.ps1" -PrependNewLines 2
+            Get-ContentFromTemplate -Path "$my_template_dir/$_/$_.ps1" -PrependNewLines 2
         }
-        Get-ContentFromTemplate -Path "$GENERATE_TEMPLATES_DIR/Dockerfile.end.ps1" -PrependNewLines 2
-    } | Out-File "$VARIANT_DIR/Dockerfile" -Encoding Utf8 -Force -NoNewline
+        Get-ContentFromTemplate -Path "$my_template_dir/Dockerfile.end.ps1" -PrependNewLines 2
+    }
+    $content | Out-File "$VARIANT_DIR/Dockerfile" -Encoding Utf8 -Force -NoNewline
 
     # Generate docker-entrypoint.sh
     if ( $VARIANT['includeEntrypointScript' ]) {
