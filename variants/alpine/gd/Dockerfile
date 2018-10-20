@@ -10,7 +10,6 @@ RUN apk update \
         --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
     && apk del --no-cache freetype-dev libpng-dev libjpeg-turbo-dev
-
-# Cleanup
-RUN rm -rf /usr/src/php \
+    && rm -rf /usr/src/php \
     && rm -rf /var/cache/apk/*
+
