@@ -9,6 +9,6 @@ Each variant includes the one or more php extensions.
 
 | Tags |
 |:-------:| $( $VARIANTS | % {
-"`n| ``:$( $_['name'] )`` |"
+"`n| ``:$( $_['tag'] )`` |"
 })
 "@

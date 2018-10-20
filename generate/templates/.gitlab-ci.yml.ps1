@@ -11,14 +11,14 @@ stages:
 $( $VARIANTS | % {
 @"
 
-build-$( $_['name'] ):
+build-$( $_['tag'] ):
   stage: build
   only:
     - master
     - api
   variables:
-    VARIANT_NAME: "$( $_['name'] )"
-    VARIANT_TAG: "$( $_['name'] )-v$( $_['version'] )"
+    VARIANT_NAME: "$( $_['tag'] )"
+    VARIANT_TAG: "$( $_['tag'] )-v$( $_['version'] )"
 "@ + @'
 
   before_script:

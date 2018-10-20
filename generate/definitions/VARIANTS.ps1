@@ -2,23 +2,36 @@
 $VARIANTS_VERSION = "1.0.0"
 $VARIANTS = @(
     @{
-        name = 'gd'
-        includeEntrypointScript = $false
+        tag = 'gd'
+        distro = 'alpine'
     }
     @{
-        name = 'mysqli'
-        includeEntrypointScript = $false
+        tag = 'mysqli'
+        distro = 'alpine'
     }
     @{
-        name = 'mysqli-gd'
-        includeEntrypointScript = $false
+        tag = 'mysqli-gd'
+        distro = 'alpine'
     }
 )
 
-# Intelligently add properties
-$VARIANTS | % {
-    $_['version'] = $VARIANTS_VERSION
-    $_['extensions'] = $_['name'] -split '-' | ? { $_.Trim() }
+# Docker image variants' definitions (shared)
+$VARIANTS_SHARED = @{
+    version = $VARIANTS_VERSION
+    buildContextFiles = @{
+        templates = @{
+            'Dockerfile' = @{
+                common = $false
+                includeHeader = $true
+                includeFooter = $true
+                passes = @(
+                    @{
+                        variables = @{}
+                    }
+                )
+            }
+        }
+    }
 }
 
 # Send definitions down the pipeline
