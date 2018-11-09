@@ -15,7 +15,7 @@ build-gd:
     - api
   variables:
     VARIANT_TAG: "gd"
-    VARIANT_TAG_WITH_VERSION: "gd-v1.0.0"
+    VARIANT_TAG_WITH_VERSION: "gd-v1.0.1a"
     VARIANT_BUILD_DIR: "variants/alpine/gd"
   before_script:
     - date '+%Y-%m-%d %H:%M:%S %z'
@@ -61,8 +61,54 @@ build-mysqli:
     - api
   variables:
     VARIANT_TAG: "mysqli"
-    VARIANT_TAG_WITH_VERSION: "mysqli-v1.0.0"
+    VARIANT_TAG_WITH_VERSION: "mysqli-v1.0.1a"
     VARIANT_BUILD_DIR: "variants/alpine/mysqli"
+  before_script:
+    - date '+%Y-%m-%d %H:%M:%S %z'
+
+    # Login to Docker Hub registry
+    - echo "${DOCKERHUB_REGISTRY_PASSWORD}" | docker login -u "${DOCKERHUB_REGISTRY_USER}" --password-stdin
+
+    # Login to GitLab registry
+    - echo "${CI_REGISTRY_PASSWORD}" | docker login -u "${CI_REGISTRY_USER}" --password-stdin "${CI_REGISTRY}"
+
+  script:
+    - date '+%Y-%m-%d %H:%M:%S %z'
+    - docker build
+      -t "${DOCKERHUB_REGISTRY_USER}/${CI_PROJECT_NAME}:${VARIANT_TAG}"
+      -t "${DOCKERHUB_REGISTRY_USER}/${CI_PROJECT_NAME}:${VARIANT_TAG_WITH_VERSION}"
+      -t "${CI_REGISTRY_IMAGE}:${VARIANT_TAG}"
+      -t "${CI_REGISTRY_IMAGE}:${VARIANT_TAG_WITH_VERSION}"
+      "${VARIANT_BUILD_DIR}"
+
+    - date '+%Y-%m-%d %H:%M:%S %z'
+
+    # Push to Docker Hub registry. E.g. 'namespace/my-project:tag'
+    - docker push "${DOCKERHUB_REGISTRY_USER}/${CI_PROJECT_NAME}:${VARIANT_TAG}"
+    - docker push "${DOCKERHUB_REGISTRY_USER}/${CI_PROJECT_NAME}:${VARIANT_TAG_WITH_VERSION}"
+
+    # Push to GitLab registry. E.g. 'registry.gitlab.com/namespace/my-project:tag
+    - docker push "${CI_REGISTRY_IMAGE}:${VARIANT_TAG}"
+    - docker push "${CI_REGISTRY_IMAGE}:${VARIANT_TAG_WITH_VERSION}"
+
+  after_script:
+    - date '+%Y-%m-%d %H:%M:%S %z'
+
+    # Log out of Docker Hub registry
+    - docker logout
+
+    # Log out of GitLab registry
+    - docker logout "${CI_REGISTRY}"
+ 
+build-xdebug:
+  stage: build
+  only:
+    - master
+    - api
+  variables:
+    VARIANT_TAG: "xdebug"
+    VARIANT_TAG_WITH_VERSION: "xdebug-v1.0.1a"
+    VARIANT_BUILD_DIR: "variants/alpine/xdebug"
   before_script:
     - date '+%Y-%m-%d %H:%M:%S %z'
 
@@ -107,8 +153,54 @@ build-mysqli-gd:
     - api
   variables:
     VARIANT_TAG: "mysqli-gd"
-    VARIANT_TAG_WITH_VERSION: "mysqli-gd-v1.0.0"
+    VARIANT_TAG_WITH_VERSION: "mysqli-gd-v1.0.1a"
     VARIANT_BUILD_DIR: "variants/alpine/mysqli-gd"
+  before_script:
+    - date '+%Y-%m-%d %H:%M:%S %z'
+
+    # Login to Docker Hub registry
+    - echo "${DOCKERHUB_REGISTRY_PASSWORD}" | docker login -u "${DOCKERHUB_REGISTRY_USER}" --password-stdin
+
+    # Login to GitLab registry
+    - echo "${CI_REGISTRY_PASSWORD}" | docker login -u "${CI_REGISTRY_USER}" --password-stdin "${CI_REGISTRY}"
+
+  script:
+    - date '+%Y-%m-%d %H:%M:%S %z'
+    - docker build
+      -t "${DOCKERHUB_REGISTRY_USER}/${CI_PROJECT_NAME}:${VARIANT_TAG}"
+      -t "${DOCKERHUB_REGISTRY_USER}/${CI_PROJECT_NAME}:${VARIANT_TAG_WITH_VERSION}"
+      -t "${CI_REGISTRY_IMAGE}:${VARIANT_TAG}"
+      -t "${CI_REGISTRY_IMAGE}:${VARIANT_TAG_WITH_VERSION}"
+      "${VARIANT_BUILD_DIR}"
+
+    - date '+%Y-%m-%d %H:%M:%S %z'
+
+    # Push to Docker Hub registry. E.g. 'namespace/my-project:tag'
+    - docker push "${DOCKERHUB_REGISTRY_USER}/${CI_PROJECT_NAME}:${VARIANT_TAG}"
+    - docker push "${DOCKERHUB_REGISTRY_USER}/${CI_PROJECT_NAME}:${VARIANT_TAG_WITH_VERSION}"
+
+    # Push to GitLab registry. E.g. 'registry.gitlab.com/namespace/my-project:tag
+    - docker push "${CI_REGISTRY_IMAGE}:${VARIANT_TAG}"
+    - docker push "${CI_REGISTRY_IMAGE}:${VARIANT_TAG_WITH_VERSION}"
+
+  after_script:
+    - date '+%Y-%m-%d %H:%M:%S %z'
+
+    # Log out of Docker Hub registry
+    - docker logout
+
+    # Log out of GitLab registry
+    - docker logout "${CI_REGISTRY}"
+ 
+build-mysqli-gd-xdebug:
+  stage: build
+  only:
+    - master
+    - api
+  variables:
+    VARIANT_TAG: "mysqli-gd-xdebug"
+    VARIANT_TAG_WITH_VERSION: "mysqli-gd-xdebug-v1.0.1a"
+    VARIANT_BUILD_DIR: "variants/alpine/mysqli-gd-xdebug"
   before_script:
     - date '+%Y-%m-%d %H:%M:%S %z'
 
