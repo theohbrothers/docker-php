@@ -15,7 +15,7 @@ build-gd:
     - api
   variables:
     VARIANT_TAG: "gd"
-    VARIANT_TAG_WITH_VERSION: "gd-v1.0.1a"
+    VARIANT_TAG_WITH_VERSION: "gd-v1.0.1"
     VARIANT_BUILD_DIR: "variants/alpine/gd"
   before_script:
     - date '+%Y-%m-%d %H:%M:%S %z'
@@ -61,7 +61,7 @@ build-mysqli:
     - api
   variables:
     VARIANT_TAG: "mysqli"
-    VARIANT_TAG_WITH_VERSION: "mysqli-v1.0.1a"
+    VARIANT_TAG_WITH_VERSION: "mysqli-v1.0.1"
     VARIANT_BUILD_DIR: "variants/alpine/mysqli"
   before_script:
     - date '+%Y-%m-%d %H:%M:%S %z'
@@ -107,7 +107,7 @@ build-xdebug:
     - api
   variables:
     VARIANT_TAG: "xdebug"
-    VARIANT_TAG_WITH_VERSION: "xdebug-v1.0.1a"
+    VARIANT_TAG_WITH_VERSION: "xdebug-v1.0.1"
     VARIANT_BUILD_DIR: "variants/alpine/xdebug"
   before_script:
     - date '+%Y-%m-%d %H:%M:%S %z'
@@ -153,7 +153,7 @@ build-mysqli-gd:
     - api
   variables:
     VARIANT_TAG: "mysqli-gd"
-    VARIANT_TAG_WITH_VERSION: "mysqli-gd-v1.0.1a"
+    VARIANT_TAG_WITH_VERSION: "mysqli-gd-v1.0.1"
     VARIANT_BUILD_DIR: "variants/alpine/mysqli-gd"
   before_script:
     - date '+%Y-%m-%d %H:%M:%S %z'
@@ -199,7 +199,7 @@ build-mysqli-gd-xdebug:
     - api
   variables:
     VARIANT_TAG: "mysqli-gd-xdebug"
-    VARIANT_TAG_WITH_VERSION: "mysqli-gd-xdebug-v1.0.1a"
+    VARIANT_TAG_WITH_VERSION: "mysqli-gd-xdebug-v1.0.1"
     VARIANT_BUILD_DIR: "variants/alpine/mysqli-gd-xdebug"
   before_script:
     - date '+%Y-%m-%d %H:%M:%S %z'
