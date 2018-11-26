@@ -8,6 +8,6 @@ RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev lib
         --with-png-dir=/usr/include/ \
         --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd \
-    && apk del --no-cache freetype-dev libpng-dev libjpeg-turbo-dev \
-    && docker-php-source delete \
+    && apk del freetype-dev libpng-dev libjpeg-turbo-dev \
+    && docker-php-source delete
 
