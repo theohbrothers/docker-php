@@ -10,6 +10,9 @@ Each variant includes the one or more php extensions.
 |:-------:| 
 | `:gd` | 
 | `:mysqli` | 
+| `:pdo` | 
 | `:xdebug` | 
 | `:mysqli-gd` | 
-| `:mysqli-gd-xdebug` |
+| `:mysqli-gd-pdo` | 
+| `:mysqli-gd-xdebug` | 
+| `:mysqli-gd-pdo-xdebug` |

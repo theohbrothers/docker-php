@@ -1,12 +1,10 @@
 FROM php:7.2-fpm-alpine
 
 # mysqli (deprecated)
-RUN docker-php-ext-install -j$(nproc) mysqli \
-    && docker-php-source delete
+RUN docker-php-ext-install mysqli
 
 # gd
-RUN apk update \
-    && apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev \
+RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev \
     && docker-php-ext-configure gd \
         --with-gd \
         --with-freetype-dir=/usr/include/ \
@@ -15,5 +13,4 @@ RUN apk update \
     && docker-php-ext-install -j$(nproc) gd \
     && apk del --no-cache freetype-dev libpng-dev libjpeg-turbo-dev \
     && docker-php-source delete \
-    && rm -rf /var/cache/apk/*
 
