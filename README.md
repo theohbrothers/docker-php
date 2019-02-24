@@ -12,7 +12,8 @@ Each variant includes the one or more php extensions.
 | `:mysqli` | 
 | `:pdo` | 
 | `:xdebug` | 
-| `:mysqli-gd` | 
-| `:mysqli-gd-pdo` | 
-| `:mysqli-gd-xdebug` | 
-| `:mysqli-gd-pdo-xdebug` |
+| `:opcache` | 
+| `:opcache-mysqli-gd` | 
+| `:opcache-mysqli-gd-pdo` | 
+| `:opcache-mysqli-gd-xdebug` | 
+| `:opcache-mysqli-gd-pdo-xdebug` |
