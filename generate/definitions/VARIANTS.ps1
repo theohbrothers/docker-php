@@ -1,5 +1,5 @@
 # Docker image variants' definitions
-$VARIANTS_VERSION = "1.0.2"
+$VARIANTS_VERSION = "1.0.3a"
 $VARIANTS = @(
     @{
         tag = 'gd'
@@ -18,19 +18,23 @@ $VARIANTS = @(
         distro = 'alpine'
     }
     @{
-        tag = 'mysqli-gd'
+        tag = 'opcache'
         distro = 'alpine'
     }
     @{
-        tag = 'mysqli-gd-pdo'
+        tag = 'opcache-mysqli-gd'
         distro = 'alpine'
     }
     @{
-        tag = 'mysqli-gd-xdebug'
+        tag = 'opcache-mysqli-gd-pdo'
         distro = 'alpine'
     }
     @{
-        tag = 'mysqli-gd-pdo-xdebug'
+        tag = 'opcache-mysqli-gd-xdebug'
+        distro = 'alpine'
+    }
+    @{
+        tag = 'opcache-mysqli-gd-pdo-xdebug'
         distro = 'alpine'
     }
 )
