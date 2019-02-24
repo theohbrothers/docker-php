@@ -13,7 +13,7 @@ stages:
   only:
     refs:
       - branches
-      #- /^v(?:\d+\.)+\d+$/
+      - /^v(?:\d+\.)+\d+$/
     variables:
       - $VARIANT_TAG
       - $VARIANT_TAG_WITH_VERSION
