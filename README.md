@@ -8,12 +8,4 @@ Each variant includes the one or more php extensions.
 
 | Tags |
 |:-------:| 
-| `:gd` | 
-| `:mysqli` | 
-| `:pdo` | 
-| `:xdebug` | 
-| `:opcache` | 
-| `:opcache-mysqli-gd` | 
-| `:opcache-mysqli-gd-pdo` | 
-| `:opcache-mysqli-gd-xdebug` | 
-| `:opcache-mysqli-gd-pdo-xdebug` |
+| `:memcached` |

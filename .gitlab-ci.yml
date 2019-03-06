@@ -58,65 +58,9 @@ stages:
   # Log out of GitLab registry
   - docker logout "${CI_REGISTRY}"
 
-build-gd:
+build-memcached:
   <<: *build_definition
   variables:
-    VARIANT_TAG: gd
-    VARIANT_TAG_WITH_VERSION: gd-$CI_COMMIT_REF_NAME
-    VARIANT_BUILD_DIR: variants/alpine/gd
-
-build-mysqli:
-  <<: *build_definition
-  variables:
-    VARIANT_TAG: mysqli
-    VARIANT_TAG_WITH_VERSION: mysqli-$CI_COMMIT_REF_NAME
-    VARIANT_BUILD_DIR: variants/alpine/mysqli
-
-build-pdo:
-  <<: *build_definition
-  variables:
-    VARIANT_TAG: pdo
-    VARIANT_TAG_WITH_VERSION: pdo-$CI_COMMIT_REF_NAME
-    VARIANT_BUILD_DIR: variants/alpine/pdo
-
-build-xdebug:
-  <<: *build_definition
-  variables:
-    VARIANT_TAG: xdebug
-    VARIANT_TAG_WITH_VERSION: xdebug-$CI_COMMIT_REF_NAME
-    VARIANT_BUILD_DIR: variants/alpine/xdebug
-
-build-opcache:
-  <<: *build_definition
-  variables:
-    VARIANT_TAG: opcache
-    VARIANT_TAG_WITH_VERSION: opcache-$CI_COMMIT_REF_NAME
-    VARIANT_BUILD_DIR: variants/alpine/opcache
-
-build-opcache-mysqli-gd:
-  <<: *build_definition
-  variables:
-    VARIANT_TAG: opcache-mysqli-gd
-    VARIANT_TAG_WITH_VERSION: opcache-mysqli-gd-$CI_COMMIT_REF_NAME
-    VARIANT_BUILD_DIR: variants/alpine/opcache-mysqli-gd
-
-build-opcache-mysqli-gd-pdo:
-  <<: *build_definition
-  variables:
-    VARIANT_TAG: opcache-mysqli-gd-pdo
-    VARIANT_TAG_WITH_VERSION: opcache-mysqli-gd-pdo-$CI_COMMIT_REF_NAME
-    VARIANT_BUILD_DIR: variants/alpine/opcache-mysqli-gd-pdo
-
-build-opcache-mysqli-gd-xdebug:
-  <<: *build_definition
-  variables:
-    VARIANT_TAG: opcache-mysqli-gd-xdebug
-    VARIANT_TAG_WITH_VERSION: opcache-mysqli-gd-xdebug-$CI_COMMIT_REF_NAME
-    VARIANT_BUILD_DIR: variants/alpine/opcache-mysqli-gd-xdebug
-
-build-opcache-mysqli-gd-pdo-xdebug:
-  <<: *build_definition
-  variables:
-    VARIANT_TAG: opcache-mysqli-gd-pdo-xdebug
-    VARIANT_TAG_WITH_VERSION: opcache-mysqli-gd-pdo-xdebug-$CI_COMMIT_REF_NAME
-    VARIANT_BUILD_DIR: variants/alpine/opcache-mysqli-gd-pdo-xdebug
+    VARIANT_TAG: memcached
+    VARIANT_TAG_WITH_VERSION: memcached-$CI_COMMIT_REF_NAME
+    VARIANT_BUILD_DIR: variants/alpine/memcached
