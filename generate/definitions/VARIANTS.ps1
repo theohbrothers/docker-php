@@ -2,7 +2,7 @@
 $VARIANTS_VERSION = "1.0.4a"
 $VARIANTS = @(
     @{
-        tag = 'gd'
+        tag = 'opcache'
         distro = 'alpine'
     }
     @{
@@ -10,19 +10,20 @@ $VARIANTS = @(
         distro = 'alpine'
     }
     @{
+        tag = 'gd'
+        distro = 'alpine'
+    }
+    @{
         tag = 'pdo'
         distro = 'alpine'
     }
     @{
-        tag = 'xdebug'
-        distro = 'alpine'
-    }
-    @{
-        tag = 'opcache'
-        distro = 'alpine'
-    }
-    @{
         tag = 'memcached'
+        distro = 'alpine'
+    }
+
+    @{
+        tag = 'xdebug'
         distro = 'alpine'
     }
     @{

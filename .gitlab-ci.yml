@@ -58,12 +58,12 @@ stages:
   # Log out of GitLab registry
   - docker logout "${CI_REGISTRY}"
 
-build-gd:
+build-opcache:
   <<: *build_definition
   variables:
-    VARIANT_TAG: gd
-    VARIANT_TAG_WITH_VERSION: gd-$CI_COMMIT_REF_NAME
-    VARIANT_BUILD_DIR: variants/alpine/gd
+    VARIANT_TAG: opcache
+    VARIANT_TAG_WITH_VERSION: opcache-$CI_COMMIT_REF_NAME
+    VARIANT_BUILD_DIR: variants/alpine/opcache
 
 build-mysqli:
   <<: *build_definition
@@ -72,6 +72,13 @@ build-mysqli:
     VARIANT_TAG_WITH_VERSION: mysqli-$CI_COMMIT_REF_NAME
     VARIANT_BUILD_DIR: variants/alpine/mysqli
 
+build-gd:
+  <<: *build_definition
+  variables:
+    VARIANT_TAG: gd
+    VARIANT_TAG_WITH_VERSION: gd-$CI_COMMIT_REF_NAME
+    VARIANT_BUILD_DIR: variants/alpine/gd
+
 build-pdo:
   <<: *build_definition
   variables:
@@ -79,26 +86,19 @@ build-pdo:
     VARIANT_TAG_WITH_VERSION: pdo-$CI_COMMIT_REF_NAME
     VARIANT_BUILD_DIR: variants/alpine/pdo
 
-build-xdebug:
-  <<: *build_definition
-  variables:
-    VARIANT_TAG: xdebug
-    VARIANT_TAG_WITH_VERSION: xdebug-$CI_COMMIT_REF_NAME
-    VARIANT_BUILD_DIR: variants/alpine/xdebug
-
-build-opcache:
-  <<: *build_definition
-  variables:
-    VARIANT_TAG: opcache
-    VARIANT_TAG_WITH_VERSION: opcache-$CI_COMMIT_REF_NAME
-    VARIANT_BUILD_DIR: variants/alpine/opcache
-
 build-memcached:
   <<: *build_definition
   variables:
     VARIANT_TAG: memcached
     VARIANT_TAG_WITH_VERSION: memcached-$CI_COMMIT_REF_NAME
     VARIANT_BUILD_DIR: variants/alpine/memcached
+
+build-xdebug:
+  <<: *build_definition
+  variables:
+    VARIANT_TAG: xdebug
+    VARIANT_TAG_WITH_VERSION: xdebug-$CI_COMMIT_REF_NAME
+    VARIANT_BUILD_DIR: variants/alpine/xdebug
 
 build-opcache-mysqli-gd:
   <<: *build_definition
