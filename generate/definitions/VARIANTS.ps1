@@ -21,7 +21,6 @@ $VARIANTS = @(
         tag = 'memcached'
         distro = 'alpine'
     }
-
     @{
         tag = 'xdebug'
         distro = 'alpine'
