@@ -1,4 +1,4 @@
-# php-fpm-alpine
+# docker-php-fpm-alpine
 
 Official php:7.2-fpm-alpine with php extension(s).
 
