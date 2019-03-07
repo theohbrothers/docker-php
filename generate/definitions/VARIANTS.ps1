@@ -1,5 +1,5 @@
 # Docker image variants' definitions
-$VARIANTS_VERSION = "1.0.4"
+$VARIANTS_VERSION = "1.0.5"
 $VARIANTS = @(
     @{
         tag = 'opcache'
