@@ -1,5 +1,4 @@
 # Docker image variants' definitions
-$VARIANTS_VERSION = "1.0.5"
 $VARIANTS = @(
     @{
         tag = 'opcache'
@@ -22,6 +21,10 @@ $VARIANTS = @(
         distro = 'alpine'
     }
     @{
+        tag = 'sockets'
+        distro = 'alpine'
+    }
+    @{
         tag = 'xdebug'
         distro = 'alpine'
     }
@@ -38,6 +41,10 @@ $VARIANTS = @(
         distro = 'alpine'
     }
     @{
+        tag = 'opcache-mysqli-gd-pdo-memcached-sockets'
+        distro = 'alpine'
+    }
+    @{
         tag = 'opcache-mysqli-gd-xdebug'
         distro = 'alpine'
     }
@@ -49,11 +56,14 @@ $VARIANTS = @(
         tag = 'opcache-mysqli-gd-pdo-memcached-xdebug'
         distro = 'alpine'
     }
+    @{
+        tag = 'opcache-mysqli-gd-pdo-memcached-sockets-xdebug'
+        distro = 'alpine'
+    }
 )
 
 # Docker image variants' definitions (shared)
 $VARIANTS_SHARED = @{
-    version = $VARIANTS_VERSION
     buildContextFiles = @{
         templates = @{
             'Dockerfile' = @{

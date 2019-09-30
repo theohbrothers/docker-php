@@ -15,10 +15,13 @@ Each variant includes the one or more php extensions.
 | `:gd` | 
 | `:pdo` | 
 | `:memcached` | 
+| `:sockets` | 
 | `:xdebug` | 
 | `:opcache-mysqli-gd` | 
 | `:opcache-mysqli-gd-pdo` | 
 | `:opcache-mysqli-gd-pdo-memcached` | 
+| `:opcache-mysqli-gd-pdo-memcached-sockets` | 
 | `:opcache-mysqli-gd-xdebug` | 
 | `:opcache-mysqli-gd-pdo-xdebug` | 
-| `:opcache-mysqli-gd-pdo-memcached-xdebug` |
+| `:opcache-mysqli-gd-pdo-memcached-xdebug` | 
+| `:opcache-mysqli-gd-pdo-memcached-sockets-xdebug` |
