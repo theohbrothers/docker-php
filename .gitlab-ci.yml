@@ -93,6 +93,13 @@ build-memcached:
     VARIANT_TAG_WITH_VERSION: memcached-$CI_COMMIT_REF_NAME
     VARIANT_BUILD_DIR: variants/alpine/memcached
 
+build-sockets:
+  <<: *build_definition
+  variables:
+    VARIANT_TAG: sockets
+    VARIANT_TAG_WITH_VERSION: sockets-$CI_COMMIT_REF_NAME
+    VARIANT_BUILD_DIR: variants/alpine/sockets
+
 build-xdebug:
   <<: *build_definition
   variables:
@@ -121,6 +128,13 @@ build-opcache-mysqli-gd-pdo-memcached:
     VARIANT_TAG_WITH_VERSION: opcache-mysqli-gd-pdo-memcached-$CI_COMMIT_REF_NAME
     VARIANT_BUILD_DIR: variants/alpine/opcache-mysqli-gd-pdo-memcached
 
+build-opcache-mysqli-gd-pdo-memcached-sockets:
+  <<: *build_definition
+  variables:
+    VARIANT_TAG: opcache-mysqli-gd-pdo-memcached-sockets
+    VARIANT_TAG_WITH_VERSION: opcache-mysqli-gd-pdo-memcached-sockets-$CI_COMMIT_REF_NAME
+    VARIANT_BUILD_DIR: variants/alpine/opcache-mysqli-gd-pdo-memcached-sockets
+
 build-opcache-mysqli-gd-xdebug:
   <<: *build_definition
   variables:
@@ -141,3 +155,10 @@ build-opcache-mysqli-gd-pdo-memcached-xdebug:
     VARIANT_TAG: opcache-mysqli-gd-pdo-memcached-xdebug
     VARIANT_TAG_WITH_VERSION: opcache-mysqli-gd-pdo-memcached-xdebug-$CI_COMMIT_REF_NAME
     VARIANT_BUILD_DIR: variants/alpine/opcache-mysqli-gd-pdo-memcached-xdebug
+
+build-opcache-mysqli-gd-pdo-memcached-sockets-xdebug:
+  <<: *build_definition
+  variables:
+    VARIANT_TAG: opcache-mysqli-gd-pdo-memcached-sockets-xdebug
+    VARIANT_TAG_WITH_VERSION: opcache-mysqli-gd-pdo-memcached-sockets-xdebug-$CI_COMMIT_REF_NAME
+    VARIANT_BUILD_DIR: variants/alpine/opcache-mysqli-gd-pdo-memcached-sockets-xdebug
