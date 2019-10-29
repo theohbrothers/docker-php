@@ -1,7 +1,7 @@
 @"
 # docker-php-fpm-alpine
 
-[![gitlab-ci](https://img.shields.io/gitlab/pipeline/leojonathanoh/docker-php-fpm-alpine/dev)](https://gitlab.com/leojonathanoh/docker-php-fpm-alpine/commits/dev)
+[![github-actions](https://github.com/leojonathanoh/docker-php-fpm-alpine/workflows/build/badge.svg)](https://github.com/leojonathanoh/docker-php-fpm-alpine/actions)
 [![github-tag](https://img.shields.io/github/tag/leojonathanoh/docker-php-fpm-alpine)](https://github.com/leojonathanoh/docker-php-fpm-alpine/releases/)
 [![docker-image-size](https://img.shields.io/microbadger/image-size/leojonathanoh/docker-php-fpm-alpine/latest)](https://hub.docker.com/r/leojonathanoh/docker-php-fpm-alpine)
 [![docker-image-layers](https://img.shields.io/microbadger/layers/leojonathanoh/docker-php-fpm-alpine/latest)](https://hub.docker.com/r/leojonathanoh/docker-php-fpm-alpine)
