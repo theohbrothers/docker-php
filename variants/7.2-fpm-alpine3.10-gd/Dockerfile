@@ -1,7 +1,5 @@
 FROM php:7.2-fpm-alpine3.10
 
-FROM :
-
 # gd
 RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev \
     && docker-php-ext-configure gd \

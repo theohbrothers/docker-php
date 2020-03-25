@@ -1,7 +1,5 @@
 FROM php:7.2-fpm-alpine3.10
 
-FROM :
-
 # memcached
 # See: https://stackoverflow.com/questions/40894385/how-can-i-install-the-php-memcached-extension-on-dockers-php7-alpine-image
 RUN apk add --no-cache libmemcached-libs zlib \

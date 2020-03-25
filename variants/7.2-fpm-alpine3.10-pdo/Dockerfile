@@ -1,7 +1,5 @@
 FROM php:7.2-fpm-alpine3.10
 
-FROM :
-
 # PDO: mysql driver
 RUN docker-php-ext-install pdo pdo_mysql
 
