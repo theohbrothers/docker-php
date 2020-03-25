@@ -1,6 +1,6 @@
 # Docker image variants' definitions
 $local:VARIANTS_MATRIX = @(
-    '7.2.29-fpm-alpine3.10', '7.3.16-fpm-alpine3.11', '7.4.4-fpm-alpine3.11' | % {
+    '7.2.29-fpm-alpine3.10', '7.3.16-fpm-alpine3.11' | % {
         @{
             base_image_tag = $_
             subvariants = @(
