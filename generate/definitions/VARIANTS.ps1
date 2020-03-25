@@ -1,7 +1,7 @@
 # Docker image variants' definitions
 $local:VARIANTS_MATRIX = @(
     @{
-        base_image_tag = '7.2-fpm-alpine3.10'
+        base_image_tag = '7.2.29-fpm-alpine3.10'
         subvariants = @(
             @{ components = @( 'opcache' ) }
             @{ components = @( 'mysqli' ) }
