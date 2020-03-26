@@ -26,7 +26,7 @@ $local:VARIANTS_MATRIX = @(
         @{
             base_image_tag = $_
             subvariants = @(
-                @{ components = @( 'opcache' ) }
+                @{ components = @( 'opcache' ); tag_as_latest = $true }
                 @{ components = @( 'mysqli' ) }
                 @{ components = @( 'gd' ) }
                 @{ components = @( 'pdo' ) }
