@@ -13,7 +13,20 @@ Dockerized php with php extension(s), based on [official php images](https://hub
 Each variant includes the one or more php extensions.
 
 | Tags |
-|:-------:| $( $VARIANTS | % {
-"`n| ``:$( $_['tag'] )`` |"
-})
+|:-------:|
+$(
+($VARIANTS | % {
+    if ( $_['tag_as_latest'] ) {
+@"
+| ``:$( $_['tag'] )``, ``:latest`` |
+
+"@
+    }else {
+@"
+| ``:$( $_['tag'] )`` |
+
+"@
+    }
+}) -join ''
+)
 "@
