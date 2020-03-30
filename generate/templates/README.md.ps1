@@ -8,10 +8,6 @@
 
 Dockerized php with php extension(s), based on [official php images](https://hub.docker.com/_/php).
 
-# Variants
-
-Each variant includes the one or more php extensions.
-
 | Tags |
 |:-------:|
 $(
