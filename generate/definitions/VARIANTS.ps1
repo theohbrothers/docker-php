@@ -2,6 +2,7 @@
 $local:VARIANTS_BASE_IMAGE_TAGS = @(
     '7.2.34-fpm-alpine3.12'
     '7.3.26-fpm-alpine3.13'
+    '7.4.14-fpm-alpine3.13'
 )
 $local:VARIANTS_SUBVARIANTS = @(
     @{ components = @( 'opcache' ) }
