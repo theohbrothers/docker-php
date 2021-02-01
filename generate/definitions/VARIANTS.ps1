@@ -1,32 +1,16 @@
 # Docker image variants' definitions
+$local:VARIANTS_BASE_IMAGE_TAGS = @(
+    '7.2.34-fpm-alpine3.12'
+    '7.3.26-fpm-alpine3.13'
+    '7.4.14-fpm-alpine3.13'
+    '8.0.1-fpm-alpine3.13'
+)
 $local:VARIANTS_MATRIX = @(
-    '7.2.29-fpm-alpine3.10' | % {
+    $local:VARIANTS_BASE_IMAGE_TAGS | % {
         @{
             base_image_tag = $_
             subvariants = @(
-                @{ components = @( 'opcache' ) }
-                @{ components = @( 'mysqli' ) }
-                @{ components = @( 'gd' ) }
-                @{ components = @( 'pdo' ) }
-                @{ components = @( 'memcached' ) }
-                @{ components = @( 'sockets' ) }
-                @{ components = @( 'xdebug' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'sockets' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd', 'xdebug' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'xdebug' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'xdebug' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'sockets', 'xdebug' ) }
-            )
-        }
-    }
-    '7.3.16-fpm-alpine3.11' | % {
-        @{
-            base_image_tag = $_
-            subvariants = @(
-                @{ components = @( 'opcache' ); tag_as_latest = $true }
+                @{ components = @( 'opcache' ); tag_as_latest = if ($_ -eq $local:VARIANTS_BASE_IMAGE_TAGS[$local:VARIANTS_BASE_IMAGE_TAGS.Count - 1]) { $true } else { $false } }
                 @{ components = @( 'mysqli' ) }
                 @{ components = @( 'gd' ) }
                 @{ components = @( 'pdo' ) }
