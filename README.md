@@ -54,7 +54,7 @@ Dockerized php with php extension(s), based on [official php images](https://hub
 | `:7.4.14-fpm-alpine3.13-opcache-mysqli-gd-pdo-xdebug` |
 | `:7.4.14-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-xdebug` |
 | `:7.4.14-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug` |
-| `:8.0.1-fpm-alpine3.13-opcache` |
+| `:8.0.1-fpm-alpine3.13-opcache`, `:latest` |
 | `:8.0.1-fpm-alpine3.13-mysqli` |
 | `:8.0.1-fpm-alpine3.13-gd` |
 | `:8.0.1-fpm-alpine3.13-pdo` |

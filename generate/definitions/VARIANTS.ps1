@@ -5,33 +5,30 @@ $local:VARIANTS_BASE_IMAGE_TAGS = @(
     '7.4.14-fpm-alpine3.13'
     '8.0.1-fpm-alpine3.13'
 )
-$local:VARIANTS_SUBVARIANTS = @(
-    @{ components = @( 'opcache' ) }
-    @{ components = @( 'mysqli' ) }
-    @{ components = @( 'gd' ) }
-    @{ components = @( 'pdo' ) }
-    @{ components = @( 'memcached' ) }
-    @{ components = @( 'sockets' ) }
-    @{ components = @( 'xdebug' ) }
-    @{ components = @( 'opcache', 'mysqli', 'gd' ) }
-    @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo' ) }
-    @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached' ) }
-    @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'sockets' ) }
-    @{ components = @( 'opcache', 'mysqli', 'gd', 'xdebug' ) }
-    @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'xdebug' ) }
-    @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'xdebug' ) }
-    @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'sockets', 'xdebug' ) }
-)
-
 $local:VARIANTS_MATRIX = @(
     $local:VARIANTS_BASE_IMAGE_TAGS | % {
         @{
             base_image_tag = $_
-            subvariants = $local:VARIANTS_SUBVARIANTS
+            subvariants = @(
+                @{ components = @( 'opcache' ); tag_as_latest = if ($_ -eq $local:VARIANTS_BASE_IMAGE_TAGS[$local:VARIANTS_BASE_IMAGE_TAGS.Count - 1]) { $true } else { $false } }
+                @{ components = @( 'mysqli' ) }
+                @{ components = @( 'gd' ) }
+                @{ components = @( 'pdo' ) }
+                @{ components = @( 'memcached' ) }
+                @{ components = @( 'sockets' ) }
+                @{ components = @( 'xdebug' ) }
+                @{ components = @( 'opcache', 'mysqli', 'gd' ) }
+                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo' ) }
+                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached' ) }
+                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'sockets' ) }
+                @{ components = @( 'opcache', 'mysqli', 'gd', 'xdebug' ) }
+                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'xdebug' ) }
+                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'xdebug' ) }
+                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'sockets', 'xdebug' ) }
+            )
         }
     }
 )
-
 $VARIANTS = @(
     foreach ($variant in $VARIANTS_MATRIX){
         foreach ($subVariant in $variant['subvariants']) {
