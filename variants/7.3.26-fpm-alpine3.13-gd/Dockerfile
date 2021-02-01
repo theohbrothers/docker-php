@@ -1,10 +1,4 @@
-FROM php:7.3.16-fpm-alpine3.11
-
-# opcache
-RUN docker-php-ext-install opcache
-
-# mysqli (deprecated)
-RUN docker-php-ext-install mysqli
+FROM php:7.3.26-fpm-alpine3.13
 
 # gd
 RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev \

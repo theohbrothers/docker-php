@@ -774,12 +774,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-opcache:
+  build-7-3-26-fpm-alpine3-13-opcache:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-opcache
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-opcache-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-opcache
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-opcache
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-opcache-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-opcache
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)
@@ -825,12 +825,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-mysqli:
+  build-7-3-26-fpm-alpine3-13-mysqli:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-mysqli
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-mysqli-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-mysqli
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-mysqli
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-mysqli-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-mysqli
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)
@@ -876,12 +876,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-gd:
+  build-7-3-26-fpm-alpine3-13-gd:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-gd
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-gd-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-gd
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-gd
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-gd-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-gd
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)
@@ -927,12 +927,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-pdo:
+  build-7-3-26-fpm-alpine3-13-pdo:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-pdo
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-pdo-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-pdo
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-pdo
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-pdo-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-pdo
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)
@@ -978,12 +978,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-memcached:
+  build-7-3-26-fpm-alpine3-13-memcached:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-memcached
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-memcached-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-memcached
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-memcached
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-memcached-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-memcached
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)
@@ -1029,12 +1029,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-sockets:
+  build-7-3-26-fpm-alpine3-13-sockets:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-sockets
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-sockets-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-sockets
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-sockets
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-sockets-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-sockets
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)
@@ -1080,12 +1080,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-xdebug:
+  build-7-3-26-fpm-alpine3-13-xdebug:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-xdebug
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-xdebug-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-xdebug
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-xdebug
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-xdebug-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-xdebug
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)
@@ -1131,12 +1131,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-opcache-mysqli-gd:
+  build-7-3-26-fpm-alpine3-13-opcache-mysqli-gd:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-opcache-mysqli-gd
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-opcache-mysqli-gd
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)
@@ -1182,12 +1182,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-opcache-mysqli-gd-pdo:
+  build-7-3-26-fpm-alpine3-13-opcache-mysqli-gd-pdo:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)
@@ -1233,12 +1233,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-opcache-mysqli-gd-pdo-memcached:
+  build-7-3-26-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-memcached
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-memcached-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-memcached
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)
@@ -1284,12 +1284,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-opcache-mysqli-gd-pdo-memcached-sockets:
+  build-7-3-26-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-memcached-sockets
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-memcached-sockets-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-memcached-sockets
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)
@@ -1335,12 +1335,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-opcache-mysqli-gd-xdebug:
+  build-7-3-26-fpm-alpine3-13-opcache-mysqli-gd-xdebug:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-xdebug
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-xdebug-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-opcache-mysqli-gd-xdebug
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-xdebug
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-xdebug-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-opcache-mysqli-gd-xdebug
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)
@@ -1386,12 +1386,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-opcache-mysqli-gd-pdo-xdebug:
+  build-7-3-26-fpm-alpine3-13-opcache-mysqli-gd-pdo-xdebug:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-xdebug
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-xdebug-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-xdebug
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-xdebug
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-xdebug-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-xdebug
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)
@@ -1437,12 +1437,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-opcache-mysqli-gd-pdo-memcached-xdebug:
+  build-7-3-26-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-xdebug:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-memcached-xdebug
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-memcached-xdebug-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-memcached-xdebug
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-xdebug
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-xdebug-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-xdebug
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)
@@ -1488,12 +1488,12 @@ jobs:
     - name: Clean-up
       run: docker logout
       if: always()
-  build-7-3-16-fpm-alpine3-11-opcache-mysqli-gd-pdo-memcached-sockets-xdebug:
+  build-7-3-26-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug:
     runs-on: ubuntu-18.04
     env:
-      VARIANT_TAG: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
-      # VARIANT_TAG_WITH_REF: 7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-memcached-sockets-xdebug-${GITHUB_REF}
-      VARIANT_BUILD_DIR: variants/7.3.16-fpm-alpine3.11-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
+      VARIANT_TAG: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
+      # VARIANT_TAG_WITH_REF: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug-${GITHUB_REF}
+      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
     steps:
     - uses: actions/checkout@v1
     - name: Display system info (linux)

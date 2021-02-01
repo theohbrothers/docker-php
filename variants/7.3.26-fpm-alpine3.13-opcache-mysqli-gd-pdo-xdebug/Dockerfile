@@ -1,4 +1,4 @@
-FROM php:7.3.16-fpm-alpine3.11
+FROM php:7.3.26-fpm-alpine3.13
 
 # opcache
 RUN docker-php-ext-install opcache
@@ -24,21 +24,6 @@ RUN docker-php-ext-install pdo pdo_mysql
 # See: https://github.com/docker-library/php/issues/221
 RUN apk add --no-cache --virtual .pgsql-build-dependencies postgresql-dev \
     && docker-php-ext-install pdo pdo_pgsql
-
-# memcached
-# See: https://stackoverflow.com/questions/40894385/how-can-i-install-the-php-memcached-extension-on-dockers-php7-alpine-image
-RUN apk add --no-cache libmemcached-libs zlib \
-    && apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS \
-    && apk add --no-cache --virtual .memcached-deps zlib-dev libmemcached-dev cyrus-sasl-dev \
-    && pecl install memcached \
-    && echo "extension=memcached.so" > /usr/local/etc/php/conf.d/20_memcached.ini \
-    && docker-php-source delete \
-    && apk del .memcached-deps .phpize-deps \
-    && df -h
-
-# Sockets
-# See: https://github.com/docker-library/php/issues/181#issuecomment-173365852
-RUN docker-php-ext-install sockets
 
 # Xdebug: https://stackoverflow.com/questions/46825502/how-do-i-install-xdebug-on-dockers-official-php-fpm-alpine-image
 # PHPIZE_DEPS: autoconf dpkg-dev dpkg file g++ gcc libc-dev make pkgconf re2c

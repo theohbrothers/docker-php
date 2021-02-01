@@ -1,4 +1,4 @@
-FROM php:7.3.16-fpm-alpine3.11
+FROM php:7.3.26-fpm-alpine3.13
 
 # opcache
 RUN docker-php-ext-install opcache
@@ -17,13 +17,13 @@ RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev lib
     && apk del freetype-dev libpng-dev libjpeg-turbo-dev \
     && docker-php-source delete
 
-# Xdebug: https://stackoverflow.com/questions/46825502/how-do-i-install-xdebug-on-dockers-official-php-fpm-alpine-image
-# PHPIZE_DEPS: autoconf dpkg-dev dpkg file g++ gcc libc-dev make pkgconf re2c
-RUN apk add --no-cache --virtual .build-dependencies $PHPIZE_DEPS \
-    && pecl install xdebug \
-    && docker-php-ext-enable xdebug \
-    && docker-php-source delete \
-    && apk del .build-dependencies
+# PDO: mysql driver
+RUN docker-php-ext-install pdo pdo_mysql
+
+# PDO: pgsql driver
+# See: https://github.com/docker-library/php/issues/221
+RUN apk add --no-cache --virtual .pgsql-build-dependencies postgresql-dev \
+    && docker-php-ext-install pdo pdo_pgsql
 
 
 

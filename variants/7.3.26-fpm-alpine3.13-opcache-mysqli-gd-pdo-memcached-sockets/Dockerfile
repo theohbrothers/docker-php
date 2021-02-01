@@ -1,4 +1,4 @@
-FROM php:7.3.16-fpm-alpine3.11
+FROM php:7.3.26-fpm-alpine3.13
 
 # opcache
 RUN docker-php-ext-install opcache
@@ -35,6 +35,10 @@ RUN apk add --no-cache libmemcached-libs zlib \
     && docker-php-source delete \
     && apk del .memcached-deps .phpize-deps \
     && df -h
+
+# Sockets
+# See: https://github.com/docker-library/php/issues/181#issuecomment-173365852
+RUN docker-php-ext-install sockets
 
 
 
