@@ -9,21 +9,21 @@ Dockerized php with php extension(s), based on [official php images](https://hub
 
 | Tags |
 |:-------:|
-| `:7.2.29-fpm-alpine3.10-opcache` |
-| `:7.2.29-fpm-alpine3.10-mysqli` |
-| `:7.2.29-fpm-alpine3.10-gd` |
-| `:7.2.29-fpm-alpine3.10-pdo` |
-| `:7.2.29-fpm-alpine3.10-memcached` |
-| `:7.2.29-fpm-alpine3.10-sockets` |
-| `:7.2.29-fpm-alpine3.10-xdebug` |
-| `:7.2.29-fpm-alpine3.10-opcache-mysqli-gd` |
-| `:7.2.29-fpm-alpine3.10-opcache-mysqli-gd-pdo` |
-| `:7.2.29-fpm-alpine3.10-opcache-mysqli-gd-pdo-memcached` |
-| `:7.2.29-fpm-alpine3.10-opcache-mysqli-gd-pdo-memcached-sockets` |
-| `:7.2.29-fpm-alpine3.10-opcache-mysqli-gd-xdebug` |
-| `:7.2.29-fpm-alpine3.10-opcache-mysqli-gd-pdo-xdebug` |
-| `:7.2.29-fpm-alpine3.10-opcache-mysqli-gd-pdo-memcached-xdebug` |
-| `:7.2.29-fpm-alpine3.10-opcache-mysqli-gd-pdo-memcached-sockets-xdebug` |
+| `:7.2.34-fpm-alpine3.12-opcache` |
+| `:7.2.34-fpm-alpine3.12-mysqli` |
+| `:7.2.34-fpm-alpine3.12-gd` |
+| `:7.2.34-fpm-alpine3.12-pdo` |
+| `:7.2.34-fpm-alpine3.12-memcached` |
+| `:7.2.34-fpm-alpine3.12-sockets` |
+| `:7.2.34-fpm-alpine3.12-xdebug` |
+| `:7.2.34-fpm-alpine3.12-opcache-mysqli-gd` |
+| `:7.2.34-fpm-alpine3.12-opcache-mysqli-gd-pdo` |
+| `:7.2.34-fpm-alpine3.12-opcache-mysqli-gd-pdo-memcached` |
+| `:7.2.34-fpm-alpine3.12-opcache-mysqli-gd-pdo-memcached-sockets` |
+| `:7.2.34-fpm-alpine3.12-opcache-mysqli-gd-xdebug` |
+| `:7.2.34-fpm-alpine3.12-opcache-mysqli-gd-pdo-xdebug` |
+| `:7.2.34-fpm-alpine3.12-opcache-mysqli-gd-pdo-memcached-xdebug` |
+| `:7.2.34-fpm-alpine3.12-opcache-mysqli-gd-pdo-memcached-sockets-xdebug` |
 | `:7.3.16-fpm-alpine3.11-opcache`, `:latest` |
 | `:7.3.16-fpm-alpine3.11-mysqli` |
 | `:7.3.16-fpm-alpine3.11-gd` |

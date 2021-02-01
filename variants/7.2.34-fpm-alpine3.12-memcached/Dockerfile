@@ -1,4 +1,4 @@
-FROM php:7.2.29-fpm-alpine3.10
+FROM php:7.2.34-fpm-alpine3.12
 
 # memcached
 # See: https://stackoverflow.com/questions/40894385/how-can-i-install-the-php-memcached-extension-on-dockers-php7-alpine-image

@@ -1,4 +1,4 @@
-FROM php:7.2.29-fpm-alpine3.10
+FROM php:7.2.34-fpm-alpine3.12
 
 # Xdebug: https://stackoverflow.com/questions/46825502/how-do-i-install-xdebug-on-dockers-official-php-fpm-alpine-image
 # PHPIZE_DEPS: autoconf dpkg-dev dpkg file g++ gcc libc-dev make pkgconf re2c
