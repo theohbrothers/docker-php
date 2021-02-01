@@ -8,7 +8,7 @@ $(
         'gd' {
             # Fix for php 7.4
             # See: https://github.com/docker-library/php/issues/931#issuecomment-568658449 and https://github.com/docker-library/php/issues/912#issuecomment-559918036
-            if ( $VARIANT['tag'] -match '^7.4') {
+            if ( $VARIANT['tag'] -match '^8.0|^7.4') {
                 @'
 # gd
 RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev \
