@@ -5,3 +5,6 @@ RUN docker-php-ext-install opcache
 
 
 
+RUN echo \
+    && php -i \
+    && php -m

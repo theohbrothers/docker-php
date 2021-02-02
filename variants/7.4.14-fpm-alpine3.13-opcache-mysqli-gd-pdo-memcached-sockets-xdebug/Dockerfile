@@ -48,3 +48,6 @@ RUN apk add --no-cache --virtual .build-dependencies $PHPIZE_DEPS \
 
 
 
+RUN echo \
+    && php -i \
+    && php -m

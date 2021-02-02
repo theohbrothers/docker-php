@@ -25,3 +25,6 @@ RUN apk add --no-cache --virtual .pgsql-build-dependencies postgresql-dev \
 
 
 
+RUN echo \
+    && php -i \
+    && php -m
