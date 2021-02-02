@@ -38,3 +38,6 @@ RUN apk add --no-cache libmemcached-libs zlib \
 
 
 
+RUN echo \
+    && php -i \
+    && php -m

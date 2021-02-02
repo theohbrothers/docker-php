@@ -101,18 +101,33 @@ RUN docker-php-ext-install sockets
         }
 
         'xdebug' {
-            @'
+            if ( $VARIANT['tag'] -match '^8.0') {
+                # Install xdebug v3 for php >= v8
+                @'
 # Xdebug: https://stackoverflow.com/questions/46825502/how-do-i-install-xdebug-on-dockers-official-php-fpm-alpine-image
 # PHPIZE_DEPS: autoconf dpkg-dev dpkg file g++ gcc libc-dev make pkgconf re2c
 RUN apk add --no-cache --virtual .build-dependencies $PHPIZE_DEPS \
-    && pecl install xdebug \
+    && pecl install xdebug-3.0.2 \
     && docker-php-ext-enable xdebug \
     && docker-php-source delete \
     && apk del .build-dependencies
 
 
 '@
+            }else {
+                # Install xdebug v2 for php < v8
+                @'
+# Xdebug: https://stackoverflow.com/questions/46825502/how-do-i-install-xdebug-on-dockers-official-php-fpm-alpine-image
+# PHPIZE_DEPS: autoconf dpkg-dev dpkg file g++ gcc libc-dev make pkgconf re2c
+RUN apk add --no-cache --virtual .build-dependencies $PHPIZE_DEPS \
+    && pecl install xdebug-2.9.8 \
+    && docker-php-ext-enable xdebug \
+    && docker-php-source delete \
+    && apk del .build-dependencies
 
+
+'@
+            }
         }
 
         default {

@@ -5,3 +5,6 @@ RUN docker-php-ext-install mysqli
 
 
 
+RUN echo \
+    && php -i \
+    && php -m

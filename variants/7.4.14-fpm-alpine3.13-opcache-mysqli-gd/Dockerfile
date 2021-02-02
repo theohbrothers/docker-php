@@ -17,3 +17,6 @@ RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev lib
 
 
 
+RUN echo \
+    && php -i \
+    && php -m

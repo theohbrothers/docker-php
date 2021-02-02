@@ -42,3 +42,6 @@ RUN docker-php-ext-install sockets
 
 
 
+RUN echo \
+    && php -i \
+    && php -m
