@@ -10,7 +10,7 @@ $local:VARIANTS_MATRIX = @(
         @{
             base_image_tag = $_
             subvariants = @(
-                @{ components = @( 'opcache' ); tag_as_latest = if ($_ -eq $local:VARIANTS_BASE_IMAGE_TAGS[$local:VARIANTS_BASE_IMAGE_TAGS.Count - 1]) { $true } else { $false } }
+                @{ components = @( 'opcache' ); tag_as_latest = if ($_ -eq $local:VARIANTS_BASE_IMAGE_TAGS[0]) { $true } else { $false } }
                 @{ components = @( 'mysqli' ) }
                 @{ components = @( 'gd' ) }
                 @{ components = @( 'pdo' ) }
