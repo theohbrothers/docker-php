@@ -10,20 +10,7 @@ $local:VARIANTS_MATRIX = @(
         @{
             base_image_tag = $_
             subvariants = @(
-                @{ components = @( 'opcache' ); tag_as_latest = if ($_ -eq $local:VARIANTS_BASE_IMAGE_TAGS[0]) { $true } else { $false } }
-                @{ components = @( 'mysqli' ) }
-                @{ components = @( 'gd' ) }
-                @{ components = @( 'pdo' ) }
-                @{ components = @( 'memcached' ) }
-                @{ components = @( 'sockets' ) }
-                @{ components = @( 'xdebug' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'sockets' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd', 'xdebug' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'xdebug' ) }
-                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'xdebug' ) }
+                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'sockets' ); tag_as_latest = if ($_ -eq $local:VARIANTS_BASE_IMAGE_TAGS[0]) { $true } else { $false } }
                 @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'sockets', 'xdebug' ) }
             )
         }
