@@ -61,8 +61,6 @@ $VARIANTS | % {
 
     - name: Prepare
       id: prep
-      env:
-        DOCKERHUB_REGISTRY_USER: ${{ secrets.DOCKERHUB_REGISTRY_USER }}
       run: |
         set -e
 
