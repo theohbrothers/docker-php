@@ -18,3 +18,17 @@ Dockerized php with php extension(s), based on [official php images](https://hub
 | `:7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug` | [View](variants/7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug ) |
 | `:7.2.34-fpm-alpine3.12-opcache-mysqli-gd-pdo-memcached-sockets` | [View](variants/7.2.34-fpm-alpine3.12-opcache-mysqli-gd-pdo-memcached-sockets ) |
 | `:7.2.34-fpm-alpine3.12-opcache-mysqli-gd-pdo-memcached-sockets-xdebug` | [View](variants/7.2.34-fpm-alpine3.12-opcache-mysqli-gd-pdo-memcached-sockets-xdebug ) |
+
+## Development
+
+Requires Windows `powershell` or [`pwsh`](https://github.com/PowerShell/PowerShell).
+
+```powershell
+# Install Generate-DockerImageVariants module: https://github.com/theohbrothers/Generate-DockerImageVariants
+Install-Module -Name Generate-DockerImageVariants -Repository PSGallery -Scope CurrentUser -Force -Verbose
+
+# Edit ./generate templates
+
+# Generate the variants
+Generate-DockerImageVariants .
+```
