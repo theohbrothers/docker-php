@@ -1,8 +1,8 @@
 # Docker image variants' definitions
 $local:VARIANTS_BASE_IMAGE_TAGS = @(
-    '8.0.1-fpm-alpine3.13'
-    '7.4.14-fpm-alpine3.13'
-    '7.3.26-fpm-alpine3.13'
+    '8.0.25-fpm-alpine3.15'
+    '7.4.32-fpm-alpine3.16'
+    '7.3.33-fpm-alpine3.15'
     '7.2.34-fpm-alpine3.12'
 )
 $local:VARIANTS_MATRIX = @(

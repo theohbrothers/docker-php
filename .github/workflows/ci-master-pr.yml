@@ -11,11 +11,11 @@ on:
     - master
 jobs:
 
-  build-8-0-1-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets:
+  build-8-0-25-fpm-alpine3-15-opcache-mysqli-gd-pdo-memcached-sockets:
     runs-on: ubuntu-latest
     env:
-      VARIANT_TAG: 8.0.1-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets
-      VARIANT_BUILD_DIR: variants/8.0.1-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets
+      VARIANT_TAG: 8.0.25-fpm-alpine3.15-opcache-mysqli-gd-pdo-memcached-sockets
+      VARIANT_BUILD_DIR: variants/8.0.25-fpm-alpine3.15-opcache-mysqli-gd-pdo-memcached-sockets
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -140,11 +140,11 @@ jobs:
       run: docker logout
       if: always()
 
-  build-8-0-1-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug:
+  build-8-0-25-fpm-alpine3-15-opcache-mysqli-gd-pdo-memcached-sockets-xdebug:
     runs-on: ubuntu-latest
     env:
-      VARIANT_TAG: 8.0.1-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
-      VARIANT_BUILD_DIR: variants/8.0.1-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
+      VARIANT_TAG: 8.0.25-fpm-alpine3.15-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
+      VARIANT_BUILD_DIR: variants/8.0.25-fpm-alpine3.15-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -268,11 +268,11 @@ jobs:
       run: docker logout
       if: always()
 
-  build-7-4-14-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets:
+  build-7-4-32-fpm-alpine3-16-opcache-mysqli-gd-pdo-memcached-sockets:
     runs-on: ubuntu-latest
     env:
-      VARIANT_TAG: 7.4.14-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets
-      VARIANT_BUILD_DIR: variants/7.4.14-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets
+      VARIANT_TAG: 7.4.32-fpm-alpine3.16-opcache-mysqli-gd-pdo-memcached-sockets
+      VARIANT_BUILD_DIR: variants/7.4.32-fpm-alpine3.16-opcache-mysqli-gd-pdo-memcached-sockets
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -396,11 +396,11 @@ jobs:
       run: docker logout
       if: always()
 
-  build-7-4-14-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug:
+  build-7-4-32-fpm-alpine3-16-opcache-mysqli-gd-pdo-memcached-sockets-xdebug:
     runs-on: ubuntu-latest
     env:
-      VARIANT_TAG: 7.4.14-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
-      VARIANT_BUILD_DIR: variants/7.4.14-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
+      VARIANT_TAG: 7.4.32-fpm-alpine3.16-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
+      VARIANT_BUILD_DIR: variants/7.4.32-fpm-alpine3.16-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -524,11 +524,11 @@ jobs:
       run: docker logout
       if: always()
 
-  build-7-3-26-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets:
+  build-7-3-33-fpm-alpine3-15-opcache-mysqli-gd-pdo-memcached-sockets:
     runs-on: ubuntu-latest
     env:
-      VARIANT_TAG: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets
-      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets
+      VARIANT_TAG: 7.3.33-fpm-alpine3.15-opcache-mysqli-gd-pdo-memcached-sockets
+      VARIANT_BUILD_DIR: variants/7.3.33-fpm-alpine3.15-opcache-mysqli-gd-pdo-memcached-sockets
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -652,11 +652,11 @@ jobs:
       run: docker logout
       if: always()
 
-  build-7-3-26-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug:
+  build-7-3-33-fpm-alpine3-15-opcache-mysqli-gd-pdo-memcached-sockets-xdebug:
     runs-on: ubuntu-latest
     env:
-      VARIANT_TAG: 7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
-      VARIANT_BUILD_DIR: variants/7.3.26-fpm-alpine3.13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
+      VARIANT_TAG: 7.3.33-fpm-alpine3.15-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
+      VARIANT_BUILD_DIR: variants/7.3.33-fpm-alpine3.15-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -1037,7 +1037,7 @@ jobs:
       if: always()
 
   update-draft-release:
-    needs: [build-8-0-1-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets, build-8-0-1-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug, build-7-4-14-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets, build-7-4-14-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug, build-7-3-26-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets, build-7-3-26-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug, build-7-2-34-fpm-alpine3-12-opcache-mysqli-gd-pdo-memcached-sockets, build-7-2-34-fpm-alpine3-12-opcache-mysqli-gd-pdo-memcached-sockets-xdebug]
+    needs: [build-8-0-25-fpm-alpine3-15-opcache-mysqli-gd-pdo-memcached-sockets, build-8-0-25-fpm-alpine3-15-opcache-mysqli-gd-pdo-memcached-sockets-xdebug, build-7-4-32-fpm-alpine3-16-opcache-mysqli-gd-pdo-memcached-sockets, build-7-4-32-fpm-alpine3-16-opcache-mysqli-gd-pdo-memcached-sockets-xdebug, build-7-3-33-fpm-alpine3-15-opcache-mysqli-gd-pdo-memcached-sockets, build-7-3-33-fpm-alpine3-15-opcache-mysqli-gd-pdo-memcached-sockets-xdebug, build-7-2-34-fpm-alpine3-12-opcache-mysqli-gd-pdo-memcached-sockets, build-7-2-34-fpm-alpine3-12-opcache-mysqli-gd-pdo-memcached-sockets-xdebug]
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
@@ -1050,7 +1050,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish-draft-release:
-    needs: [build-8-0-1-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets, build-8-0-1-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug, build-7-4-14-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets, build-7-4-14-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug, build-7-3-26-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets, build-7-3-26-fpm-alpine3-13-opcache-mysqli-gd-pdo-memcached-sockets-xdebug, build-7-2-34-fpm-alpine3-12-opcache-mysqli-gd-pdo-memcached-sockets, build-7-2-34-fpm-alpine3-12-opcache-mysqli-gd-pdo-memcached-sockets-xdebug]
+    needs: [build-8-0-25-fpm-alpine3-15-opcache-mysqli-gd-pdo-memcached-sockets, build-8-0-25-fpm-alpine3-15-opcache-mysqli-gd-pdo-memcached-sockets-xdebug, build-7-4-32-fpm-alpine3-16-opcache-mysqli-gd-pdo-memcached-sockets, build-7-4-32-fpm-alpine3-16-opcache-mysqli-gd-pdo-memcached-sockets-xdebug, build-7-3-33-fpm-alpine3-15-opcache-mysqli-gd-pdo-memcached-sockets, build-7-3-33-fpm-alpine3-15-opcache-mysqli-gd-pdo-memcached-sockets-xdebug, build-7-2-34-fpm-alpine3-12-opcache-mysqli-gd-pdo-memcached-sockets, build-7-2-34-fpm-alpine3-12-opcache-mysqli-gd-pdo-memcached-sockets-xdebug]
     if: startsWith(github.ref, 'refs/tags/')
     runs-on: ubuntu-latest
     steps:
