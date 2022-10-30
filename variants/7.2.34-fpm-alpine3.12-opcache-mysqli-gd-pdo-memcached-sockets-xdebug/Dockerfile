@@ -47,8 +47,15 @@ RUN apk add --no-cache --virtual .build-dependencies $PHPIZE_DEPS \
     && docker-php-ext-enable xdebug \
     && docker-php-source delete \
     && apk del .build-dependencies
-
-
+RUN { \
+        echo "[xdebug]"; \
+        echo "zend_extension=xdebug"; \
+        echo "xdebug.remote_enable=1"; \
+        echo "xdebug.remote_host=host.docker.internal"; \
+        echo "xdebug.remote_port=9000"; \
+        echo "xdebug.remote_autostart=1"; \
+        echo "xdebug.remote_connect_back=0"; \
+    } > /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini;
 
 RUN echo \
     && php -i \
