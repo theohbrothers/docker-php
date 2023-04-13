@@ -26,7 +26,8 @@ RUN set -eux; \
 # See: https://github.com/docker-library/php/issues/221
 RUN set -eux; \
     apk add --no-cache --virtual .pgsql-build-dependencies postgresql-dev; \
-    docker-php-ext-install pdo pdo_pgsql
+    docker-php-ext-install pdo pdo_pgsql; \
+    apk del .pgsql-build-dependencies postgresql-dev
 
 # memcached
 # See: https://stackoverflow.com/questions/40894385/how-can-i-install-the-php-memcached-extension-on-dockers-php7-alpine-image
