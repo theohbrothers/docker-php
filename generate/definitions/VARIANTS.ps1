@@ -1,6 +1,7 @@
 # Docker image variants' definitions
 # See: https://www.php.net/releases/index.php?json&max=100&version=8.0
 $local:VARIANTS_BASE_IMAGE_TAGS = @(
+    '8.1.17-fpm-alpine3.17'
     '8.0.28-fpm-alpine3.16'
     '7.4.33-fpm-alpine3.16'
     '7.3.33-fpm-alpine3.15'
