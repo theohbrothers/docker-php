@@ -4,25 +4,27 @@ FROM php:$( $VARIANT['_metadata']['base_image_tag'] )
 
 "@
 
+# Good reference for all PHP extensions: https://github.com/mlocati/docker-php-extension-installer
 $VARIANT['_metadata']['components'] | % {
     $component = $_
 
     switch( $component ) {
 
         'gd' {
-            # Fix for php 7.4
+            # Fix for >= php 7.4
             # See: https://github.com/docker-library/php/issues/931#issuecomment-568658449 and https://github.com/docker-library/php/issues/912#issuecomment-559918036
-            if ( $VARIANT['tag'] -match '^8.0|^7.4') {
+            if ( $VARIANT['tag'] -match '^8\.|^7\.4') {
                 @'
 # gd
 RUN set -eux; \
-    apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev; \
+    apk add --no-cache freetype libjpeg-turbo libpng; \
+    apk add --no-cache --virtual .deps freetype-dev libjpeg-turbo-dev libpng-dev; \
     docker-php-ext-configure gd \
         --with-freetype=/usr/include/ \
         --with-jpeg=/usr/include/; \
-    docker-php-ext-install -j$(nproc) gd; \
-    apk del freetype-dev libpng-dev libjpeg-turbo-dev; \
-    docker-php-source delete
+    docker-php-ext-install gd; \
+    docker-php-source delete; \
+    apk del .deps
 
 
 '@
@@ -30,15 +32,16 @@ RUN set -eux; \
                 @'
 # gd
 RUN set -eux; \
-    apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev libjpeg-turbo-dev; \
+    apk add --no-cache freetype libjpeg-turbo libpng; \
+    apk add --no-cache --virtual .deps freetype-dev libjpeg-turbo-dev libpng-dev; \
     docker-php-ext-configure gd \
         --with-gd \
         --with-freetype-dir=/usr/include/ \
         --with-png-dir=/usr/include/ \
         --with-jpeg-dir=/usr/include/; \
-    docker-php-ext-install -j$(nproc) gd; \
-    apk del freetype-dev libpng-dev libjpeg-turbo-dev; \
-    docker-php-source delete
+    docker-php-ext-install gd; \
+    docker-php-source delete; \
+    apk del .deps
 
 
 '@
@@ -52,12 +55,12 @@ RUN set -eux; \
 RUN set -eux; \
     apk add --no-cache libmemcached-libs zlib; \
     apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS; \
-    apk add --no-cache --virtual .memcached-deps zlib-dev libmemcached-dev cyrus-sasl-dev; \
+    apk add --no-cache --virtual .deps zlib-dev libmemcached-dev cyrus-sasl-dev; \
     pecl install memcached; \
     echo "extension=memcached.so" > /usr/local/etc/php/conf.d/20_memcached.ini; \
     docker-php-source delete; \
-    apk del .memcached-deps .phpize-deps; \
-    df -h
+    apk del .deps; \
+    apk del .phpize-deps;
 
 
 '@
@@ -94,9 +97,9 @@ RUN set -eux; \
 # See: https://github.com/docker-library/php/issues/221
 RUN set -eux; \
     apk add --no-cache postgresql-libs; \
-    apk add --no-cache --virtual .pgsql-build-dependencies postgresql-dev; \
-    docker-php-ext-install pdo pdo_pgsql; \
-    apk del .pgsql-build-dependencies postgresql-dev
+    apk add --no-cache --virtual .deps postgresql-dev; \
+    docker-php-ext-install pdo_pgsql; \
+    apk del .deps
 
 
 '@
