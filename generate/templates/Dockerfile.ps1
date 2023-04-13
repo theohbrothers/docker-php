@@ -118,7 +118,7 @@ RUN set -eux; \
         }
 
         'xdebug' {
-            if ( $VARIANT['tag'] -match '^8.0') {
+            if ( $VARIANT['tag'] -match '^8\.') {
                 # Install xdebug v3 for php >= v8
                 @'
 # Xdebug: https://stackoverflow.com/questions/46825502/how-do-i-install-xdebug-on-dockers-official-php-fpm-alpine-image
