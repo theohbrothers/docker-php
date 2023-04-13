@@ -27,6 +27,7 @@ RUN set -eux; \
 # PDO: pgsql driver
 # See: https://github.com/docker-library/php/issues/221
 RUN set -eux; \
+    apk add --no-cache postgresql-libs; \
     apk add --no-cache --virtual .pgsql-build-dependencies postgresql-dev; \
     docker-php-ext-install pdo pdo_pgsql; \
     apk del .pgsql-build-dependencies postgresql-dev
