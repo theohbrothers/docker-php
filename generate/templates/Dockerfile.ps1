@@ -127,9 +127,11 @@ RUN set -eux; \
 # PHPIZE_DEPS: autoconf dpkg-dev dpkg file g++ gcc libc-dev make pkgconf re2c
 RUN set -eux; \
     apk add --no-cache --virtual .build-dependencies $PHPIZE_DEPS; \
-    pecl install xdebug-3.1.6; \
+    apk add --no-cache --virtual .deps linux-headers; \
+    pecl install xdebug-3.2.1; \
     docker-php-ext-enable xdebug; \
     docker-php-source delete; \
+    apk del .deps; \
     apk del .build-dependencies
 RUN set -eux; \
     { \
