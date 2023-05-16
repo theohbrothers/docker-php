@@ -48,7 +48,9 @@ RUN set -eux; \
 # Sockets
 # See: https://github.com/docker-library/php/issues/181#issuecomment-173365852
 RUN set -eux; \
-    docker-php-ext-install sockets
+    apk add --no-cache --virtual .deps linux-headers; \
+    docker-php-ext-install sockets; \
+    apk del .deps
 
 RUN set -eux; \
     echo; \

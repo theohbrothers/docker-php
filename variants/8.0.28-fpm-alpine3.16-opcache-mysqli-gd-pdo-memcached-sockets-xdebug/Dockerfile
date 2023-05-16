@@ -46,7 +46,9 @@ RUN set -eux; \
 # Sockets
 # See: https://github.com/docker-library/php/issues/181#issuecomment-173365852
 RUN set -eux; \
-    docker-php-ext-install sockets
+    apk add --no-cache --virtual .deps linux-headers; \
+    docker-php-ext-install sockets; \
+    apk del .deps
 
 # Xdebug: https://stackoverflow.com/questions/46825502/how-do-i-install-xdebug-on-dockers-official-php-fpm-alpine-image
 # PHPIZE_DEPS: autoconf dpkg-dev dpkg file g++ gcc libc-dev make pkgconf re2c
