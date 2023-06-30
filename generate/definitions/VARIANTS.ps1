@@ -3,7 +3,7 @@
 $local:VARIANTS_BASE_IMAGE_TAGS = @(
     '8.2.5-fpm-alpine3.17'
     '8.1.17-fpm-alpine3.17'
-    '8.0.28-fpm-alpine3.16'
+    '8.0.29-fpm-alpine3.16'
     '7.4.33-fpm-alpine3.16'
     '7.3.33-fpm-alpine3.15'
     '7.2.34-fpm-alpine3.12'
