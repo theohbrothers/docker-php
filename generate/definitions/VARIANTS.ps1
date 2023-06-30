@@ -13,7 +13,8 @@ $local:VARIANTS_MATRIX = @(
         @{
             base_image_tag = $_
             subvariants = @(
-                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'sockets' ); tag_as_latest = if ($_ -eq $local:VARIANTS_BASE_IMAGE_TAGS[0]) { $true } else { $false } }
+                @{ components = @() }
+                @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'sockets' ) }
                 @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'sockets', 'xdebug' ) }
             )
         }
@@ -33,11 +34,7 @@ $VARIANTS = @(
                     $variant['base_image_tag']
                     $subVariant['components'] | ? { $_ }
                 ) -join '-'
-                tag_as_latest = if ( $subVariant.Contains('tag_as_latest') ) {
-                                    $subVariant['tag_as_latest']
-                                } else {
-                                    $false
-                                }
+                tag_as_latest = if ($variant['base_image_tag'] -eq $local:VARIANTS_MATRIX[0]['base_image_tag'] -and $subVariant['components'].Count -eq 0) { $true } else { $false }
             }
         }
     }
