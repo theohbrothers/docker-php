@@ -3,7 +3,7 @@ $local:VERSIONS = @( Get-Content $PSScriptRoot/versions.json -Encoding utf8 -raw
 # Docker image variants' definitions
 # See: https://www.php.net/releases/index.php?json&max=100&version=8.2
 $local:VARIANTS_MATRIX = @(
-    foreach ($v in $local:VERSIONS) {
+    foreach ($v in $local:VERSIONS.php.versions) {
         @{
             base_image_tag = "$v-fpm-alpine"
             subvariants = @(
