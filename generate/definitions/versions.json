@@ -1,16 +1,7 @@
 {
   "php": {
-    "versions": [
-      "8.2.10",
-      "8.1.23",
-      "8.0.30",
-      "7.4.33",
-      "7.3.33",
-      "7.2.34"
-    ],
+    "versions": ["8.2.10", "8.1.23", "8.0.30", "7.4.33", "7.3.33", "7.2.34"],
     "versionsChangeScope": "minor",
     "versionsNewScript": "Invoke-WebRequest https://api.github.com/repos/php/php-src/git/refs/tags | ConvertFrom-Json | % { $_.ref -replace 'refs/tags/php-', ''} | ? { $_ -match '^\\d+\\.\\d+\\.\\d+$' } | Sort-Object { [version]$_ } -Descending  # Alternative: https://www.php.net/releases/index.php?json&max=1000&version=7"
   }
 }
-
-
