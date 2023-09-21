@@ -42,17 +42,10 @@ try {
         Push-Location $repo
     }
 
-    # Get my versions from generate/definitions/versions.json
-    $versions = Get-Content $PSScriptRoot/generate/definitions/versions.json -Encoding utf8 | ConvertFrom-Json
-    # Get new versions
-    # See: https://www.php.net/releases/index.php?json&max=1000&version=7
-    $versionsNew = Invoke-WebRequest https://api.github.com/repos/php/php-src/git/refs/tags | ConvertFrom-Json | % { $_.ref -replace 'refs/tags/php-', ''} | ? { $_ -match '^\d+\.\d+\.\d+$' } | Sort-Object { [version]$_ } -Descending
-    # Get changed versions
-    $versionsChanged = Get-VersionsChanged -Versions $versions -VersionsNew $versionsNew -AsObject -Descending
     # Update versions.json, and open PRs with CI disabled
-    $prs = Update-DockerImageVariantsVersions -VersionsChanged $versionsChanged -CommitPreScriptblock { Move-Item .github .github.disabled -Force } -PR:$PR -WhatIf:$WhatIfPreference
+    $prs = Update-DockerImageVariantsVersions -CommitPreScriptblock { Move-Item .github .github.disabled -Force } -PR:$PR -WhatIf:$WhatIfPreference
     # Update versions.json, update PRs with CI, merge PRs one at a time, release and close milestone
-    $return = Update-DockerImageVariantsVersions -VersionsChanged $versionsChanged -PR:$PR -AutoMergeQueue:$AutoMergeQueue -AutoRelease:$AutoRelease -AutoReleaseTagConvention $AutoReleaseTagConvention -WhatIf:$WhatIfPreference
+    $return = Update-DockerImageVariantsVersions -PR:$PR -AutoMergeQueue:$AutoMergeQueue -AutoRelease:$AutoRelease -AutoReleaseTagConvention $AutoReleaseTagConvention -WhatIf:$WhatIfPreference
 }catch {
     throw
 }finally {
