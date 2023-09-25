@@ -23,6 +23,7 @@ $VARIANTS = @(
                     package_version = $variant['package_version']
                     base_image = "$( $variant['package_version'] )-fpm-alpine"
                     components = $subVariant['components']
+                    job_group_key = $variant['package_version']
                 }
                 # Docker image tag. E.g. '7.2-fpm-alpine3.10-opcache', '7.2-fpm-alpine3.10-mysqli'
                 tag = @(
