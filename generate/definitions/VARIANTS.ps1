@@ -5,7 +5,7 @@ $local:VERSIONS = @( Get-Content $PSScriptRoot/versions.json -Encoding utf8 -raw
 $local:VARIANTS_MATRIX = @(
     foreach ($v in $local:VERSIONS.php.versions) {
         @{
-            base_image_tag = "$v-fpm-alpine"
+            package_version = $v
             subvariants = @(
                 @{ components = @() }
                 @{ components = @( 'opcache', 'mysqli', 'gd', 'pdo', 'memcached', 'sockets' ) }
@@ -20,15 +20,16 @@ $VARIANTS = @(
             @{
                 # Metadata object
                 _metadata = @{
-                    base_image_tag = $variant['base_image_tag']
+                    package_version = $variant['package_version']
+                    base_image = "$( $variant['package_version'] )-fpm-alpine"
                     components = $subVariant['components']
                 }
                 # Docker image tag. E.g. '7.2-fpm-alpine3.10-opcache', '7.2-fpm-alpine3.10-mysqli'
                 tag = @(
-                    $variant['base_image_tag']
+                    "$( $variant['package_version'] )-fpm-alpine"
                     $subVariant['components'] | ? { $_ }
                 ) -join '-'
-                tag_as_latest = if ($variant['base_image_tag'] -eq $local:VARIANTS_MATRIX[0]['base_image_tag'] -and $subVariant['components'].Count -eq 0) { $true } else { $false }
+                tag_as_latest = if ($variant['package_version'] -eq $local:VARIANTS_MATRIX[0]['package_version'] -and $subVariant['components'].Count -eq 0) { $true } else { $false }
             }
         }
     }
