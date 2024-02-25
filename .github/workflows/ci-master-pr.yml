@@ -37,7 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Display system info (linux)
       run: |
@@ -61,7 +61,7 @@ jobs:
       uses: docker/setup-buildx-action@v2
 
     - name: Cache Docker layers
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: /tmp/.buildx-cache
         key: ${{ runner.os }}-buildx-8.3.3-${{ github.sha }}
@@ -105,7 +105,7 @@ jobs:
     - name: 8.3.3-fpm-alpine - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.3.3-fpm-alpine
         platforms: 
@@ -119,7 +119,7 @@ jobs:
     - name: 8.3.3-fpm-alpine - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.3.3-fpm-alpine
         platforms: 
@@ -132,7 +132,7 @@ jobs:
 
     - name: 8.3.3-fpm-alpine - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.3.3-fpm-alpine
         platforms: 
@@ -173,7 +173,7 @@ jobs:
     - name: 8.3.3-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.3.3-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -187,7 +187,7 @@ jobs:
     - name: 8.3.3-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.3.3-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -200,7 +200,7 @@ jobs:
 
     - name: 8.3.3-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.3.3-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -240,7 +240,7 @@ jobs:
     - name: 8.3.3-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.3.3-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -254,7 +254,7 @@ jobs:
     - name: 8.3.3-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.3.3-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -267,7 +267,7 @@ jobs:
 
     - name: 8.3.3-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.3.3-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -291,7 +291,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Display system info (linux)
       run: |
@@ -315,7 +315,7 @@ jobs:
       uses: docker/setup-buildx-action@v2
 
     - name: Cache Docker layers
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: /tmp/.buildx-cache
         key: ${{ runner.os }}-buildx-8.2.16-${{ github.sha }}
@@ -359,7 +359,7 @@ jobs:
     - name: 8.2.16-fpm-alpine - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.2.16-fpm-alpine
         platforms: 
@@ -373,7 +373,7 @@ jobs:
     - name: 8.2.16-fpm-alpine - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.2.16-fpm-alpine
         platforms: 
@@ -386,7 +386,7 @@ jobs:
 
     - name: 8.2.16-fpm-alpine - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.2.16-fpm-alpine
         platforms: 
@@ -426,7 +426,7 @@ jobs:
     - name: 8.2.16-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.2.16-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -440,7 +440,7 @@ jobs:
     - name: 8.2.16-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.2.16-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -453,7 +453,7 @@ jobs:
 
     - name: 8.2.16-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.2.16-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -493,7 +493,7 @@ jobs:
     - name: 8.2.16-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.2.16-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -507,7 +507,7 @@ jobs:
     - name: 8.2.16-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.2.16-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -520,7 +520,7 @@ jobs:
 
     - name: 8.2.16-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.2.16-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -544,7 +544,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Display system info (linux)
       run: |
@@ -568,7 +568,7 @@ jobs:
       uses: docker/setup-buildx-action@v2
 
     - name: Cache Docker layers
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: /tmp/.buildx-cache
         key: ${{ runner.os }}-buildx-8.1.27-${{ github.sha }}
@@ -612,7 +612,7 @@ jobs:
     - name: 8.1.27-fpm-alpine - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.1.27-fpm-alpine
         platforms: 
@@ -626,7 +626,7 @@ jobs:
     - name: 8.1.27-fpm-alpine - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.1.27-fpm-alpine
         platforms: 
@@ -639,7 +639,7 @@ jobs:
 
     - name: 8.1.27-fpm-alpine - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.1.27-fpm-alpine
         platforms: 
@@ -679,7 +679,7 @@ jobs:
     - name: 8.1.27-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.1.27-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -693,7 +693,7 @@ jobs:
     - name: 8.1.27-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.1.27-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -706,7 +706,7 @@ jobs:
 
     - name: 8.1.27-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.1.27-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -746,7 +746,7 @@ jobs:
     - name: 8.1.27-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.1.27-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -760,7 +760,7 @@ jobs:
     - name: 8.1.27-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.1.27-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -773,7 +773,7 @@ jobs:
 
     - name: 8.1.27-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.1.27-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -797,7 +797,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Display system info (linux)
       run: |
@@ -821,7 +821,7 @@ jobs:
       uses: docker/setup-buildx-action@v2
 
     - name: Cache Docker layers
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: /tmp/.buildx-cache
         key: ${{ runner.os }}-buildx-8.0.30-${{ github.sha }}
@@ -865,7 +865,7 @@ jobs:
     - name: 8.0.30-fpm-alpine - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.0.30-fpm-alpine
         platforms: 
@@ -879,7 +879,7 @@ jobs:
     - name: 8.0.30-fpm-alpine - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.0.30-fpm-alpine
         platforms: 
@@ -892,7 +892,7 @@ jobs:
 
     - name: 8.0.30-fpm-alpine - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.0.30-fpm-alpine
         platforms: 
@@ -932,7 +932,7 @@ jobs:
     - name: 8.0.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.0.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -946,7 +946,7 @@ jobs:
     - name: 8.0.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.0.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -959,7 +959,7 @@ jobs:
 
     - name: 8.0.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.0.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -999,7 +999,7 @@ jobs:
     - name: 8.0.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.0.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -1013,7 +1013,7 @@ jobs:
     - name: 8.0.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.0.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -1026,7 +1026,7 @@ jobs:
 
     - name: 8.0.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/8.0.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -1050,7 +1050,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Display system info (linux)
       run: |
@@ -1074,7 +1074,7 @@ jobs:
       uses: docker/setup-buildx-action@v2
 
     - name: Cache Docker layers
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: /tmp/.buildx-cache
         key: ${{ runner.os }}-buildx-7.4.33-${{ github.sha }}
@@ -1118,7 +1118,7 @@ jobs:
     - name: 7.4.33-fpm-alpine - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.4.33-fpm-alpine
         platforms: 
@@ -1132,7 +1132,7 @@ jobs:
     - name: 7.4.33-fpm-alpine - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.4.33-fpm-alpine
         platforms: 
@@ -1145,7 +1145,7 @@ jobs:
 
     - name: 7.4.33-fpm-alpine - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.4.33-fpm-alpine
         platforms: 
@@ -1185,7 +1185,7 @@ jobs:
     - name: 7.4.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.4.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -1199,7 +1199,7 @@ jobs:
     - name: 7.4.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.4.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -1212,7 +1212,7 @@ jobs:
 
     - name: 7.4.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.4.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -1252,7 +1252,7 @@ jobs:
     - name: 7.4.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.4.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -1266,7 +1266,7 @@ jobs:
     - name: 7.4.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.4.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -1279,7 +1279,7 @@ jobs:
 
     - name: 7.4.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.4.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -1303,7 +1303,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Display system info (linux)
       run: |
@@ -1327,7 +1327,7 @@ jobs:
       uses: docker/setup-buildx-action@v2
 
     - name: Cache Docker layers
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: /tmp/.buildx-cache
         key: ${{ runner.os }}-buildx-7.3.33-${{ github.sha }}
@@ -1371,7 +1371,7 @@ jobs:
     - name: 7.3.33-fpm-alpine - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.3.33-fpm-alpine
         platforms: 
@@ -1385,7 +1385,7 @@ jobs:
     - name: 7.3.33-fpm-alpine - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.3.33-fpm-alpine
         platforms: 
@@ -1398,7 +1398,7 @@ jobs:
 
     - name: 7.3.33-fpm-alpine - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.3.33-fpm-alpine
         platforms: 
@@ -1438,7 +1438,7 @@ jobs:
     - name: 7.3.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.3.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -1452,7 +1452,7 @@ jobs:
     - name: 7.3.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.3.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -1465,7 +1465,7 @@ jobs:
 
     - name: 7.3.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.3.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -1505,7 +1505,7 @@ jobs:
     - name: 7.3.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.3.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -1519,7 +1519,7 @@ jobs:
     - name: 7.3.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.3.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -1532,7 +1532,7 @@ jobs:
 
     - name: 7.3.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.3.33-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -1556,7 +1556,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Display system info (linux)
       run: |
@@ -1580,7 +1580,7 @@ jobs:
       uses: docker/setup-buildx-action@v2
 
     - name: Cache Docker layers
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: /tmp/.buildx-cache
         key: ${{ runner.os }}-buildx-7.2.34-${{ github.sha }}
@@ -1624,7 +1624,7 @@ jobs:
     - name: 7.2.34-fpm-alpine - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.2.34-fpm-alpine
         platforms: 
@@ -1638,7 +1638,7 @@ jobs:
     - name: 7.2.34-fpm-alpine - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.2.34-fpm-alpine
         platforms: 
@@ -1651,7 +1651,7 @@ jobs:
 
     - name: 7.2.34-fpm-alpine - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.2.34-fpm-alpine
         platforms: 
@@ -1691,7 +1691,7 @@ jobs:
     - name: 7.2.34-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.2.34-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -1705,7 +1705,7 @@ jobs:
     - name: 7.2.34-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.2.34-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -1718,7 +1718,7 @@ jobs:
 
     - name: 7.2.34-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.2.34-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
@@ -1758,7 +1758,7 @@ jobs:
     - name: 7.2.34-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.2.34-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -1772,7 +1772,7 @@ jobs:
     - name: 7.2.34-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.2.34-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
@@ -1785,7 +1785,7 @@ jobs:
 
     - name: 7.2.34-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
-      uses: docker/build-push-action@v3
+      uses: docker/build-push-action@v5
       with:
         context: variants/7.2.34-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
