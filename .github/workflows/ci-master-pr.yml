@@ -540,7 +540,7 @@ jobs:
         rm -rf /tmp/.buildx-cache
         mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
-  build-8-1-30:
+  build-8-1-31:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -571,9 +571,9 @@ jobs:
       uses: actions/cache@v4
       with:
         path: /tmp/.buildx-cache
-        key: ${{ runner.os }}-buildx-8.1.30-${{ github.sha }}
+        key: ${{ runner.os }}-buildx-8.1.31-${{ github.sha }}
         restore-keys: |
-          ${{ runner.os }}-buildx-8.1.30-
+          ${{ runner.os }}-buildx-8.1.31-
           ${{ runner.os }}-buildx-
 
     - name: Login to Docker Hub registry
@@ -586,7 +586,7 @@ jobs:
 
     # This step generates the docker tags
     - name: Prepare
-      id: prep-8-1-30-fpm-alpine
+      id: prep-8-1-31-fpm-alpine
       run: |
         set -e
 
@@ -599,7 +599,7 @@ jobs:
         # Generate docker image tags
         # E.g. 'v0.0.0-<variant>' and 'v0.0.0-abc0123-<variant>'
         # E.g. 'master-<variant>' and 'master-abc0123-<variant>'
-        VARIANT="8.1.30-fpm-alpine"
+        VARIANT="8.1.31-fpm-alpine"
         REF_VARIANT="${REF}-${VARIANT}"
         REF_SHA_VARIANT="${REF}-${SHA}-${VARIANT}"
 
@@ -609,51 +609,51 @@ jobs:
         echo "REF_VARIANT=$REF_VARIANT" >> $GITHUB_OUTPUT
         echo "REF_SHA_VARIANT=$REF_SHA_VARIANT" >> $GITHUB_OUTPUT
 
-    - name: 8.1.30-fpm-alpine - Build (PRs)
+    - name: 8.1.31-fpm-alpine - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
       uses: docker/build-push-action@v5
       with:
-        context: variants/8.1.30-fpm-alpine
+        context: variants/8.1.31-fpm-alpine
         platforms: 
         push: false
         tags: |
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine.outputs.REF_VARIANT }}
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine.outputs.REF_SHA_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine.outputs.REF_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine.outputs.REF_SHA_VARIANT }}
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
-    - name: 8.1.30-fpm-alpine - Build and push (master)
+    - name: 8.1.31-fpm-alpine - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
       uses: docker/build-push-action@v5
       with:
-        context: variants/8.1.30-fpm-alpine
+        context: variants/8.1.31-fpm-alpine
         platforms: 
         push: true
         tags: |
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine.outputs.REF_VARIANT }}
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine.outputs.REF_SHA_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine.outputs.REF_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine.outputs.REF_SHA_VARIANT }}
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
-    - name: 8.1.30-fpm-alpine - Build and push (release)
+    - name: 8.1.31-fpm-alpine - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
       uses: docker/build-push-action@v5
       with:
-        context: variants/8.1.30-fpm-alpine
+        context: variants/8.1.31-fpm-alpine
         platforms: 
         push: true
         tags: |
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine.outputs.VARIANT }}
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine.outputs.REF_VARIANT }}
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine.outputs.REF_SHA_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine.outputs.VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine.outputs.REF_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine.outputs.REF_SHA_VARIANT }}
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
     # This step generates the docker tags
     - name: Prepare
-      id: prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
+      id: prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
       run: |
         set -e
 
@@ -666,7 +666,7 @@ jobs:
         # Generate docker image tags
         # E.g. 'v0.0.0-<variant>' and 'v0.0.0-abc0123-<variant>'
         # E.g. 'master-<variant>' and 'master-abc0123-<variant>'
-        VARIANT="8.1.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets"
+        VARIANT="8.1.31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets"
         REF_VARIANT="${REF}-${VARIANT}"
         REF_SHA_VARIANT="${REF}-${SHA}-${VARIANT}"
 
@@ -676,51 +676,51 @@ jobs:
         echo "REF_VARIANT=$REF_VARIANT" >> $GITHUB_OUTPUT
         echo "REF_SHA_VARIANT=$REF_SHA_VARIANT" >> $GITHUB_OUTPUT
 
-    - name: 8.1.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build (PRs)
+    - name: 8.1.31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
       uses: docker/build-push-action@v5
       with:
-        context: variants/8.1.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
+        context: variants/8.1.31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
         push: false
         tags: |
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets.outputs.REF_VARIANT }}
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets.outputs.REF_SHA_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets.outputs.REF_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets.outputs.REF_SHA_VARIANT }}
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
-    - name: 8.1.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (master)
+    - name: 8.1.31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
       uses: docker/build-push-action@v5
       with:
-        context: variants/8.1.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
+        context: variants/8.1.31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
         push: true
         tags: |
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets.outputs.REF_VARIANT }}
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets.outputs.REF_SHA_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets.outputs.REF_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets.outputs.REF_SHA_VARIANT }}
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
-    - name: 8.1.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (release)
+    - name: 8.1.31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
       uses: docker/build-push-action@v5
       with:
-        context: variants/8.1.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
+        context: variants/8.1.31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets
         platforms: 
         push: true
         tags: |
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets.outputs.VARIANT }}
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets.outputs.REF_VARIANT }}
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets.outputs.REF_SHA_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets.outputs.VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets.outputs.REF_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets.outputs.REF_SHA_VARIANT }}
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
     # This step generates the docker tags
     - name: Prepare
-      id: prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
+      id: prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
       run: |
         set -e
 
@@ -733,7 +733,7 @@ jobs:
         # Generate docker image tags
         # E.g. 'v0.0.0-<variant>' and 'v0.0.0-abc0123-<variant>'
         # E.g. 'master-<variant>' and 'master-abc0123-<variant>'
-        VARIANT="8.1.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug"
+        VARIANT="8.1.31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug"
         REF_VARIANT="${REF}-${VARIANT}"
         REF_SHA_VARIANT="${REF}-${SHA}-${VARIANT}"
 
@@ -743,45 +743,45 @@ jobs:
         echo "REF_VARIANT=$REF_VARIANT" >> $GITHUB_OUTPUT
         echo "REF_SHA_VARIANT=$REF_SHA_VARIANT" >> $GITHUB_OUTPUT
 
-    - name: 8.1.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build (PRs)
+    - name: 8.1.31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build (PRs)
       # Run only on pull requests
       if: github.event_name == 'pull_request'
       uses: docker/build-push-action@v5
       with:
-        context: variants/8.1.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
+        context: variants/8.1.31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
         push: false
         tags: |
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug.outputs.REF_VARIANT }}
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug.outputs.REF_SHA_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug.outputs.REF_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug.outputs.REF_SHA_VARIANT }}
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
-    - name: 8.1.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (master)
+    - name: 8.1.31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (master)
       # Run only on master
       if: github.ref == 'refs/heads/master'
       uses: docker/build-push-action@v5
       with:
-        context: variants/8.1.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
+        context: variants/8.1.31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
         push: true
         tags: |
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug.outputs.REF_VARIANT }}
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug.outputs.REF_SHA_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug.outputs.REF_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug.outputs.REF_SHA_VARIANT }}
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
-    - name: 8.1.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (release)
+    - name: 8.1.31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug - Build and push (release)
       if: startsWith(github.ref, 'refs/tags/')
       uses: docker/build-push-action@v5
       with:
-        context: variants/8.1.30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
+        context: variants/8.1.31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug
         platforms: 
         push: true
         tags: |
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug.outputs.VARIANT }}
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug.outputs.REF_VARIANT }}
-          ${{ github.repository }}:${{ steps.prep-8-1-30-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug.outputs.REF_SHA_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug.outputs.VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug.outputs.REF_VARIANT }}
+          ${{ github.repository }}:${{ steps.prep-8-1-31-fpm-alpine-opcache-mysqli-gd-pdo-memcached-sockets-xdebug.outputs.REF_SHA_VARIANT }}
         cache-from: type=local,src=/tmp/.buildx-cache
         cache-to: type=local,dest=/tmp/.buildx-cache-new,mode=max
 
@@ -1809,7 +1809,7 @@ jobs:
     needs:
       - build-8-3-14
       - build-8-2-26
-      - build-8-1-30
+      - build-8-1-31
       - build-8-0-30
       - build-7-4-33
       - build-7-3-33
@@ -1829,7 +1829,7 @@ jobs:
     needs:
       - build-8-3-14
       - build-8-2-26
-      - build-8-1-30
+      - build-8-1-31
       - build-8-0-30
       - build-7-4-33
       - build-7-3-33
@@ -1851,7 +1851,7 @@ jobs:
     needs:
       - build-8-3-14
       - build-8-2-26
-      - build-8-1-30
+      - build-8-1-31
       - build-8-0-30
       - build-7-4-33
       - build-7-3-33
