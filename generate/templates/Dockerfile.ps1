@@ -1,3 +1,5 @@
+$local:VERSIONS = @( Get-Content $PSScriptRoot/../definitions/versions.json -Encoding utf8 -raw | ConvertFrom-Json )
+
 @"
 FROM php:$( $VARIANT['_metadata']['base_image'] )
 
@@ -121,14 +123,15 @@ RUN set -eux; \
 
         'xdebug' {
             if ( $VARIANT['tag'] -match '^8\.') {
+                $XDEBUG_VERSION = $( $local:VERSIONS.xdebug.versions[0] )
                 # Install xdebug v3 for php >= v8
-                @'
+                @"
 # Xdebug: https://stackoverflow.com/questions/46825502/how-do-i-install-xdebug-on-dockers-official-php-fpm-alpine-image
 # PHPIZE_DEPS: autoconf dpkg-dev dpkg file g++ gcc libc-dev make pkgconf re2c
 RUN set -eux; \
-    apk add --no-cache --virtual .build-dependencies $PHPIZE_DEPS; \
+    apk add --no-cache --virtual .build-dependencies `$PHPIZE_DEPS; \
     apk add --no-cache --virtual .deps linux-headers; \
-    pecl install xdebug-3.4.0; \
+    pecl install xdebug-$XDEBUG_VERSION; \
     docker-php-ext-enable xdebug; \
     docker-php-source delete; \
     apk del .deps; \
@@ -144,7 +147,7 @@ RUN set -eux; \
     } > /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini;
 
 
-'@
+"@
             }else {
                 # Install xdebug v2 for php < v8
                 @'
