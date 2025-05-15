@@ -55,7 +55,7 @@ RUN set -eux; \
 RUN set -eux; \
     apk add --no-cache --virtual .build-dependencies $PHPIZE_DEPS; \
     apk add --no-cache --virtual .deps linux-headers; \
-    pecl install xdebug-3.4.2; \
+    pecl install xdebug-3.4.3; \
     docker-php-ext-enable xdebug; \
     docker-php-source delete; \
     apk del .deps; \
