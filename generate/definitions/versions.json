@@ -15,7 +15,7 @@
   },
   "xdebug": {
     "versions": [
-      "3.5.0"
+      "3.5.1"
     ],
     "versionsChangeScope": "minor",
     "versionsNewScript": "Invoke-WebRequest https://api.github.com/repos/xdebug/xdebug/git/refs/tags | ConvertFrom-Json | % { $_.ref -replace 'refs/tags/', '' } | ? { $_ -match '^\\d+\\.\\d+\\.\\d+$' } | Sort-Object { [version]$_ } -Descending | Select-Object -First 1",
