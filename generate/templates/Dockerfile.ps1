@@ -80,13 +80,17 @@ RUN set -eux; \
         }
 
         'opcache' {
-            @'
+            if ([version]$VARIANT['_metadata']['package_version'] -lt '8.5') {
+                # Install opcache only for php < 8.5
+                # Since php 8.5, opcache is already included by default. See: https://www.php.net/ChangeLog-8.php#8.5.0
+                @'
 # opcache
 RUN set -eux; \
     docker-php-ext-install opcache
 
 
 '@
+            }
         }
 
         'pdo' {
