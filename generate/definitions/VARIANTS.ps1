@@ -24,6 +24,11 @@ $VARIANTS = @(
                     base_image = "$( $variant['package_version'] )-fpm-alpine"
                     components = $subVariant['components']
                     job_group_key = $variant['package_version']
+                    platforms = if ([version]$variant['package_version'] -ge '8.6.0') {
+                        'linux/amd64,linux/arm64'
+                    }else {
+                        'linux/386,linux/amd64,linux/arm/v7,linux/arm64'
+                    }
                 }
                 # Docker image tag. E.g. '7.2-fpm-alpine3.10-opcache', '7.2-fpm-alpine3.10-mysqli'
                 tag = @(
