@@ -15,7 +15,7 @@ $VARIANT['_metadata']['components'] | % {
         'gd' {
             # Fix for >= php 7.4
             # See: https://github.com/docker-library/php/issues/931#issuecomment-568658449 and https://github.com/docker-library/php/issues/912#issuecomment-559918036
-            if ( $VARIANT['tag'] -match '^8\.|^7\.4') {
+            if ([version]$VARIANT['_metadata']['package_version'] -ge '7.4') {
                 @'
 # gd
 RUN set -eux; \
@@ -51,7 +51,24 @@ RUN set -eux; \
         }
 
         'memcached' {
-            @'
+            if ([version]$VARIANT['_metadata']['package_version'] -ge '8.6') {
+                $MEMCACHED_VERSION = 'dev-issue-8.6.0beta1'
+@"
+# See: https://github.com/docker-library/php/issues/1554#issuecomment-3722916430
+RUN --mount=type=bind,from=ghcr.io/php/pie:bin,source=/pie,target=/usr/local/bin/pie \
+    set -eux; \
+    apk add --no-cache libmemcached-libs zlib; \
+    apk add --no-cache --virtual .build-dependencies `$PHPIZE_DEPS libtool; \
+    apk add --no-cache --virtual .deps zlib-dev libmemcached-dev cyrus-sasl-dev; \
+    pie install php-memcached/php-memcached:$MEMCACHED_VERSION; \
+    php -m | grep -i memcached; \
+    apk del .deps; \
+    apk del .build-dependencies
+
+
+"@
+            }else {
+@'
 # memcached
 # See: https://stackoverflow.com/questions/40894385/how-can-i-install-the-php-memcached-extension-on-dockers-php7-alpine-image
 RUN set -eux; \
@@ -66,7 +83,7 @@ RUN set -eux; \
 
 
 '@
-
+            }
         }
 
         'mysqli' {
@@ -122,11 +139,25 @@ RUN set -eux; \
 
 
 '@
-
         }
 
         'xdebug' {
-            if ( $VARIANT['tag'] -match '^8\.') {
+            if ([version]$VARIANT['_metadata']['package_version'] -ge '8.6') {
+                $XDEBUG_VERSION = '3.6.0alpha1'
+                @"
+# See: https://github.com/docker-library/php/issues/1554#issuecomment-3722916430
+RUN --mount=type=bind,from=ghcr.io/php/pie:bin,source=/pie,target=/usr/local/bin/pie \
+    set -eux; \
+    apk add --no-cache --virtual .build-dependencies `$PHPIZE_DEPS libtool; \
+    apk add --no-cache --virtual .deps linux-headers; \
+    pie install xdebug/xdebug:$XDEBUG_VERSION; \
+    php -m | grep xdebug; \
+    apk del .deps; \
+    apk del .build-dependencies
+
+
+"@
+            }elseif ([version]$VARIANT['_metadata']['package_version'] -ge '8.0') {
                 $XDEBUG_VERSION = $( $local:VERSIONS.xdebug.versions[0] )
                 # Install xdebug v3 for php >= v8
                 @"
@@ -152,7 +183,7 @@ RUN set -eux; \
 
 
 "@
-            }else {
+            }elseif ([version]$VARIANT['_metadata']['package_version'] -lt '8.0') {
                 # Install xdebug v2 for php < v8
                 @'
 # Xdebug: https://stackoverflow.com/questions/46825502/how-do-i-install-xdebug-on-dockers-official-php-fpm-alpine-image

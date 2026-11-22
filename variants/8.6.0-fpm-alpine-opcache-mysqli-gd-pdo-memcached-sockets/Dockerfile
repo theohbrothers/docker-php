@@ -27,17 +27,16 @@ RUN set -eux; \
     docker-php-ext-install pdo_pgsql; \
     apk del .deps
 
-# memcached
-# See: https://stackoverflow.com/questions/40894385/how-can-i-install-the-php-memcached-extension-on-dockers-php7-alpine-image
-RUN set -eux; \
+# See: https://github.com/docker-library/php/issues/1554#issuecomment-3722916430
+RUN --mount=type=bind,from=ghcr.io/php/pie:bin,source=/pie,target=/usr/local/bin/pie \
+    set -eux; \
     apk add --no-cache libmemcached-libs zlib; \
-    apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS; \
+    apk add --no-cache --virtual .build-dependencies $PHPIZE_DEPS libtool; \
     apk add --no-cache --virtual .deps zlib-dev libmemcached-dev cyrus-sasl-dev; \
-    pecl install memcached; \
-    echo "extension=memcached.so" > /usr/local/etc/php/conf.d/20_memcached.ini; \
-    docker-php-source delete; \
+    pie install php-memcached/php-memcached:dev-issue-8.6.0beta1; \
+    php -m | grep -i memcached; \
     apk del .deps; \
-    apk del .phpize-deps;
+    apk del .build-dependencies
 
 # Sockets
 # See: https://github.com/docker-library/php/issues/181#issuecomment-173365852
