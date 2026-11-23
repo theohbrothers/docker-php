@@ -1,5 +1,7 @@
 FROM php:8.4.28-fpm-alpine
 
+RUN apk add --no-cache ca-certificates
+
 # opcache
 RUN set -eux; \
     docker-php-ext-install opcache; \

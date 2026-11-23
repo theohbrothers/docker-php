@@ -3,6 +3,8 @@ $local:VERSIONS = @( Get-Content $PSScriptRoot/../definitions/versions.json -Enc
 @"
 FROM php:$( $VARIANT['_metadata']['base_image'] )
 
+RUN apk add --no-cache ca-certificates
+
 
 "@
 

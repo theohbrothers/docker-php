@@ -1,5 +1,7 @@
 FROM php:8.6.0-fpm-alpine
 
+RUN apk add --no-cache ca-certificates
+
 # opcache
 # Since php 8.5, opcache is already included by default. See: https://www.php.net/ChangeLog-8.php#8.5.0
 RUN set -eux; \
